@@ -3,6 +3,9 @@
 from __future__ import annotations
 
 import atexit
+import base64
+import binascii
+import io
 import os
 import shutil
 import tempfile
@@ -81,7 +84,9 @@ _datasets_lock = RLock()
 
 app = Flask(__name__, template_folder="templates", static_folder="static")
 app.config.update(
-    MAX_CONTENT_LENGTH=MAX_UPLOAD_BYTES,
+    # Browser uploads use base64 JSON to avoid false-positive edge WAF rules;
+    # allow the 4/3 transport overhead while retaining the decoded file limit.
+    MAX_CONTENT_LENGTH=(MAX_UPLOAD_BYTES * 4 // 3) + (1024 * 1024),
     OUTPUT_DIR=OUTPUT_DIR,
     LOCAL_PORT=LOCAL_PORT,
     BIND_HOST=BIND_HOST,
@@ -384,6 +389,24 @@ def upload():
     if uploaded_file is None or not uploaded_file.filename:
         return jsonify({"error": "Choose a file to upload."}), 400
     original_name = Path(uploaded_file.filename).name
+    return _save_upload(uploaded_file, original_name)
+
+
+@app.post("/api/upload-base64")
+def upload_base64():
+    """Accept browser uploads as base64 so edge WAFs do not inspect raw cells."""
+    payload = request.get_json(silent=True) or {}
+    original_name = Path(str(payload.get("filename", ""))).name
+    encoded = payload.get("content", "")
+    if not original_name or not isinstance(encoded, str):
+        return jsonify({"error": "Choose a file to upload."}), 400
+    try:
+        decoded = base64.b64decode(encoded, validate=True)
+    except (ValueError, binascii.Error) as error:
+        return jsonify({"error": "The upload payload is invalid."}), 400
+    if len(decoded) > MAX_UPLOAD_BYTES:
+        return jsonify({"error": f"The decoded file exceeds the {MAX_UPLOAD_BYTES // (1024 * 1024)} MB upload limit."}), 413
+    uploaded_file = FileStorage(stream=io.BytesIO(decoded), filename=original_name)
     return _save_upload(uploaded_file, original_name)
 
 

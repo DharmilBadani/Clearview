@@ -1,4 +1,5 @@
 import csv
+import base64
 import io
 import os
 import re
@@ -253,6 +254,18 @@ class WebAppTests(unittest.TestCase):
         self.assertIn(b"/static/app.css", response.data)
         self.assertIn(b"Explore with sample data", response.data)
         self.assertIn(b'id="normalize-booleans"', response.data)
+
+    def test_base64_upload_transport_accepts_waf_sensitive_text(self):
+        content = b"ID,Notes\n1,drop table users\n2,<script>alert(1)</script>\n"
+        response = self.client.post(
+            "/api/upload-base64",
+            json={
+                "filename": "waf-sensitive.csv",
+                "content": base64.b64encode(content).decode("ascii"),
+            },
+        )
+        self.assertEqual(response.status_code, 200, response.get_json())
+        self.assertEqual(response.get_json()["rows"], 2)
 
     def test_sample_data_is_available_without_retaining_a_dataframe(self):
         response = self.client.post("/api/sample")

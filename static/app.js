@@ -102,9 +102,21 @@
   }
 
   async function uploadFile(file) {
-    const body = new FormData();
-    body.append("file", file);
-    await loadDataset("/api/upload", { method: "POST", body }, `Uploading ${file.name}…`);
+    const bytes = new Uint8Array(await file.arrayBuffer());
+    let binary = "";
+    const chunkSize = 0x8000;
+    for (let index = 0; index < bytes.length; index += chunkSize) {
+      binary += String.fromCharCode(...bytes.subarray(index, index + chunkSize));
+    }
+    await loadDataset(
+      "/api/upload-base64",
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ filename: file.name, content: btoa(binary) }),
+      },
+      `Uploading ${file.name}…`,
+    );
   }
 
   async function loadSample() {
