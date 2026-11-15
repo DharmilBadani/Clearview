@@ -69,6 +69,11 @@ OPEN_BROWSER = _environment_bool("CLEARVIEW_OPEN_BROWSER", RUN_MODE != "producti
 SERVER_THREADS = max(1, _environment_integer("CLEARVIEW_THREADS", 4))
 TRUSTED_HOSTS = _environment_list("CLEARVIEW_ALLOWED_HOSTS")
 ALLOWED_ORIGINS = _environment_list("CLEARVIEW_ALLOWED_ORIGINS")
+# Render may deploy an existing service without importing render.yaml. In
+# production the reverse proxy supplies the public Host header, so allow that
+# host by default unless an explicit allow-list was configured.
+if RUN_MODE == "production" and not TRUSTED_HOSTS:
+    TRUSTED_HOSTS = {"*"}
 ALLOWED_EXTENSIONS = {".csv", ".tsv", ".tab", ".txt", ".xlsx", ".xlsm", ".xls"}
 UPLOAD_ROOT = Path(tempfile.mkdtemp(prefix="clearview-uploads-"))
 _datasets: dict[str, dict[str, object]] = {}
