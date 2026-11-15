@@ -267,6 +267,30 @@ class WebAppTests(unittest.TestCase):
         self.assertEqual(response.status_code, 200, response.get_json())
         self.assertEqual(response.get_json()["rows"], 2)
 
+    def test_confirmed_patterns_are_persisted_and_listed(self):
+        registry_path = Path(self.temp_dir.name) / "patterns.sqlite3"
+        previous = os.environ.get("CLEARVIEW_PATTERN_DB")
+        os.environ["CLEARVIEW_PATTERN_DB"] = str(registry_path)
+        try:
+            for _ in range(2):
+                response = self.client.post(
+                    "/api/patterns",
+                    json={
+                        "column": "City",
+                        "pattern_type": "category",
+                        "source_value": "RAJKOT",
+                        "normalized_value": "Rajkot",
+                    },
+                )
+                self.assertEqual(response.status_code, 201)
+            patterns = self.client.get("/api/patterns").get_json()["patterns"]
+            self.assertEqual(patterns[0]["confirmations"], 2)
+        finally:
+            if previous is None:
+                os.environ.pop("CLEARVIEW_PATTERN_DB", None)
+            else:
+                os.environ["CLEARVIEW_PATTERN_DB"] = previous
+
     def test_sample_data_is_available_without_retaining_a_dataframe(self):
         response = self.client.post("/api/sample")
         self.assertEqual(response.status_code, 200)

@@ -32,6 +32,7 @@ from data_engine import (
     suggest_revenue_columns,
 )
 from report_builder import EXCEL_MAX_ROWS, build_excel_report
+from pattern_registry import confirmed_replacements, list_patterns, record_pattern
 
 PROJECT_ROOT = Path(__file__).resolve().parent
 OUTPUT_DIR = PROJECT_ROOT / "output"
@@ -192,6 +193,25 @@ def _read_dataset(dataset: dict[str, object], sheet_name: str | None = None) -> 
     return frame, types
 
 
+def _apply_learned_patterns(frame: pd.DataFrame, types: dict[str, str]) -> tuple[pd.DataFrame, list[dict[str, object]]]:
+    """Apply only rules confirmed at least twice; leave all other values untouched."""
+    prepared = frame.copy()
+    applied: list[dict[str, object]] = []
+    for column, kind in types.items():
+        if column not in prepared.columns:
+            continue
+        pattern_type = "category" if kind in {"CATEGORY", "BOOLEAN"} else "value"
+        replacements = confirmed_replacements(column, pattern_type)
+        if not replacements:
+            continue
+        for index, value in prepared[column].items():
+            key = " ".join(str(value).replace("\u00a0", " ").split()).casefold()
+            if key in replacements:
+                prepared.at[index, column] = replacements[key]
+                applied.append({"column": column, "source": key, "target": replacements[key]})
+    return prepared, applied
+
+
 def _validated_filters(value: object, types: dict[str, str]) -> list[dict[str, str]]:
     if value in (None, []):
         return []
@@ -338,6 +358,26 @@ def home():
 @app.get("/api/health")
 def health():
     return jsonify({"status": "ok"})
+
+
+@app.get("/api/patterns")
+def patterns():
+    return jsonify({"patterns": list_patterns()})
+
+
+@app.post("/api/patterns")
+def learn_pattern():
+    payload = request.get_json(silent=True) or {}
+    try:
+        pattern = record_pattern(
+            payload.get("column", ""),
+            payload.get("pattern_type", "category"),
+            payload.get("source_value", ""),
+            payload.get("normalized_value", ""),
+        )
+    except (TypeError, ValueError) as error:
+        return jsonify({"error": str(error)}), 400
+    return jsonify({"pattern": pattern, "auto_apply_after": 2}), 201
 
 
 def _save_upload(uploaded_file, original_name: str):
@@ -516,9 +556,11 @@ def analyze():
         and order in {"day_first", "month_first"}
     }
 
+    original_raw = raw.copy()
     try:
         filters = _validated_filters(payload.get("filters"), types)
         validation_rules = _validated_rules(payload.get("validation_rules"), types)
+        raw, learned_patterns_applied = _apply_learned_patterns(raw, types)
         raw = filter_table(raw, types, filters)
         clean, report = clean_table(
             raw,
@@ -543,7 +585,7 @@ def analyze():
         output_dir.mkdir(parents=True, exist_ok=True)
         _csv_export_copy(clean, types).to_csv(output_dir / clean_name, index=False, encoding="utf-8-sig")
         build_excel_report(
-            raw,
+            original_raw,
             clean,
             types,
             report,
@@ -599,6 +641,7 @@ def analyze():
             "quality_issues": review_issues,
             "category_merges": report["category_merges"],
             "date_order_ambiguous": report["date_order_ambiguous"],
+            "learned_patterns_applied": learned_patterns_applied,
         }
     )
 

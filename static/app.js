@@ -515,7 +515,33 @@
     for (const [column, groups] of merges) {
       for (const group of groups) {
         const item = document.createElement("li");
-        item.textContent = `${column}: merged ${group.merged.join(", ")} into ${group.canonical}.`;
+        item.append(document.createTextNode(`${column}: merged ${group.merged.join(", ")} into ${group.canonical}. `));
+        const remember = document.createElement("button");
+        remember.type = "button";
+        remember.className = "quiet-button pattern-button";
+        remember.textContent = "Remember this";
+        remember.addEventListener("click", async () => {
+          remember.disabled = true;
+          try {
+            for (const source of group.merged) {
+              await requestJson("/api/patterns", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                  column,
+                  pattern_type: "category",
+                  source_value: source,
+                  normalized_value: group.canonical,
+                }),
+              });
+            }
+            remember.textContent = "Saved · auto-applies after 2 confirmations";
+          } catch (error) {
+            remember.disabled = false;
+            showToast(error.message, true);
+          }
+        });
+        item.append(remember);
         list.append(item);
       }
     }
