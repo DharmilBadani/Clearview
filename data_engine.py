@@ -141,7 +141,7 @@ def load_table(
 
     load_metadata: dict[str, object] = {}
     if suffix in {".xlsx", ".xlsm"}:
-        workbook_frame, sheets, load_metadata = _load_excel_rows(file_path, include_hidden_sheets)
+        _, sheets, load_metadata = _load_excel_rows(file_path, include_hidden_sheets)
         selected_sheet = sheet_name if sheet_name in sheets else (sheets[0] if sheets else None)
         if selected_sheet is None:
             raise ValueError("The Excel workbook does not contain any visible worksheets with data.")

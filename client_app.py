@@ -320,7 +320,7 @@ def enforce_local_request_origin():
     if origin:
         origin_parts = urlsplit(origin)
         try:
-            origin_port = origin_parts.port
+            origin_parts.port
         except ValueError:
             return jsonify({"error": "Invalid request origin."}), 403
         if (
