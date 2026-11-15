@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f7f4">
+  <meta name="description" content="Clean and understand tabular files locally with ClearView.">
+  <link rel="icon" type="image/svg+xml" href="{{ url_for('static', filename='favicon.svg') }}">
+  <title>ClearView — Make your data make sense</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='app.css') }}?v=20261115-2">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to workspace</a>
+  <header class="site-header">
+    <a class="brand" href="/" aria-label="ClearView home">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 32 32"><path d="M5 22.5 12.2 15l4.6 4.5L27 8.5"/><path d="M19.5 8.5H27v7.5"/></svg>
+      </span>
+      <span>clearview<span class="brand-dot">.</span></span>
+    </a>
+    <div class="header-actions">
+      <span class="local-badge"><span class="online-dot"></span> Private, local processing</span>
+      <button type="button" class="theme-button" id="theme-toggle" aria-label="Switch to dark theme">◐</button>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" aria-labelledby="page-title">
+      <div class="hero-copy">
+        <div class="eyebrow"><span class="eyebrow-line"></span> LOCAL DATA WORKSPACE <span class="eyebrow-chip">NO CLOUD REQUIRED</span></div>
+        <h1 id="page-title">Turn messy rows into <span class="heading-muted">clear decisions.</span></h1>
+        <p>Make your data make sense with a calmer workflow that spots patterns, cleans rough edges, and gives you a report you can actually use.</p>
+        <div class="hero-actions"><a class="hero-primary" href="#upload">Start with a file <span aria-hidden="true">-&gt;</span></a></div>
+        <div class="hero-meta" aria-label="ClearView features"><span><i class="meta-dot"></i>Private by default</span><span><i class="meta-dot"></i>CSV and Excel ready</span><span><i class="meta-dot"></i>Review before export</span></div>
+        <div class="trust-note"><span aria-hidden="true">⌑</span> Your files stay on this computer. No accounts, cloud upload, or external services.</div>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <div class="hero-orbit orbit-one"></div><div class="hero-orbit orbit-two"></div>
+        <div class="hero-board"><div class="hero-board-top"><span class="board-kicker">DATA PULSE</span><span class="board-live"><i></i> LIVE PREVIEW</span></div><div class="board-number">10,300 <small>rows in</small></div><div class="board-bars"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="board-footer"><span><b>98.4%</b> parseable</span><span class="board-arrow">-&gt;</span></div></div>
+        <div class="hero-tag tag-top">CLEAN</div><div class="hero-tag tag-bottom">INSIGHT</div>
+        <div class="art-orbit orbit-one"></div><div class="art-orbit orbit-two"></div>
+        <div class="art-spark spark-one">✳</div>
+        <div class="art-card card-back"><i></i><i></i><i></i></div>
+        <div class="art-card card-front">
+          <span class="art-card-title">A clearer view</span>
+          <span class="art-chart"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+          <span class="art-trend">cleaned · checked · ready</span>
+        </div>
+      </div>
+    </section>
+
+    <nav class="stepper" aria-label="Analysis steps">
+      <a class="step-link active" href="#upload" data-step="upload"><span>01</span> Add your file</a>
+      <span class="step-connector" aria-hidden="true"></span>
+      <a class="step-link" href="#data-workspace" data-step="review"><span>02</span> Review &amp; refine</a>
+      <span class="step-connector" aria-hidden="true"></span>
+      <a class="step-link" href="#results" data-step="results"><span>03</span> Get your results</a>
+    </nav>
+
+    <section class="upload-card panel" id="upload" aria-labelledby="upload-title">
+      <div class="section-topline">
+        <div class="step-number">01</div>
+        <div>
+          <h2 id="upload-title">Upload your data</h2>
+          <p>Drop in a spreadsheet or choose a file from your computer.</p>
+        </div>
+        <span class="upload-heading-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M7 16a4 4 0 0 1-.9-7.9A5 5 0 0 1 16 6h.1a5 5 0 0 1 1 9.9M12 20V10m0 0-3 3m3-3 3 3"/></svg>
+        </span>
+      </div>
+      <div class="dropzone" id="dropzone" tabindex="0" role="button" aria-label="Choose or drop a data file">
+        <input id="file-input" type="file" accept=".csv,.tsv,.tab,.txt,.xlsx,.xlsm,.xls" hidden>
+        <div class="upload-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M9 13h6m-3-3v6m5 5H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5.6a1 1 0 0 1 .7.3l5.4 5.4a1 1 0 0 1 .3.7V19a2 2 0 0 1-2 2Z"/></svg>
+        </div>
+        <div class="drop-main"><strong>Drop your file here or</strong><span><button type="button" id="browse-button" class="text-button">browse files</button></span></div>
+        <div class="drop-caption">Supported: CSV, TSV, TXT, XLS, XLSX, XLSM</div>
+        <div class="upload-limit">Maximum file size: <strong><span id="upload-limit">{{ max_upload_mb }} MB</span></strong></div>
+      </div>
+      <div class="upload-alternatives"><span>Not ready with a file?</span><button type="button" class="quiet-button" id="sample-button">Explore with sample data <span aria-hidden="true">→</span></button></div>
+      <div class="file-status" id="file-status" role="status" aria-live="polite"></div>
+    </section>
+
+    <section class="workspace-section hidden" id="data-workspace" aria-labelledby="workspace-title">
+      <div class="section-heading">
+        <div class="step-number">02</div>
+        <div class="section-heading-copy">
+          <h2 id="workspace-title" tabindex="-1">Get to know your data</h2>
+          <p>Review the preview and field types before cleaning.</p>
+        </div>
+        <button type="button" class="quiet-button" id="change-file">Choose another file</button>
+      </div>
+
+      <div class="file-summary-card">
+        <div class="file-summary-main">
+          <span class="file-type-icon" id="file-type-icon">CSV</span>
+          <div><strong id="file-name">Uploaded file</strong><span id="file-subtitle">Ready for review</span></div>
+        </div>
+        <div class="file-metrics">
+          <div><strong id="row-count">—</strong><span>rows</span></div>
+          <div class="metric-divider" aria-hidden="true"></div>
+          <div><strong id="column-count">—</strong><span>columns</span></div>
+        </div>
+      </div>
+
+      <div class="sheet-row hidden" id="sheet-row">
+        <label for="sheet-select">Worksheet</label>
+        <select id="sheet-select"></select>
+        <span>Choose the sheet to analyse</span>
+      </div>
+
+      <div class="data-card panel">
+        <div class="data-card-header">
+          <div><h3>Sample rows</h3><p>A preview of your original data before cleaning.</p></div>
+          <span class="detected-count">FIRST 12 ROWS</span>
+        </div>
+        <div class="table-wrap" role="region" aria-label="Input data preview" tabindex="0"><table id="input-table"></table></div>
+      </div>
+
+      <div class="data-card panel explore-card">
+        <div class="data-card-header"><div><h3>Filter and explore</h3><p>Choose rows to preview now and include in the exported files.</p></div><span class="auto-pill" id="filter-summary">Showing all rows</span></div>
+        <div class="rule-list" id="filter-list"></div>
+        <div class="rule-actions"><button type="button" class="quiet-button" id="add-filter">+ Add filter</button><button type="button" class="primary-mini" id="apply-filters">Preview matches</button><button type="button" class="text-button" id="clear-filters">Clear filters</button></div>
+        <div class="filter-preview hidden" id="filter-preview"><div class="filter-preview-heading"><strong id="filtered-row-count">0 rows</strong><span>matching preview</span></div><div class="table-wrap" role="region" aria-label="Filtered data preview" tabindex="0"><table id="filter-table"></table></div></div>
+      </div>
+
+      <div class="data-card panel">
+        <div class="data-card-header">
+          <div><h3>Review the fields</h3><p>We made a best guess. Change any type or date order that looks off.</p></div>
+          <span class="detected-count" id="detected-count">0 fields found</span>
+        </div>
+        <div class="table-wrap" role="region" aria-label="Detected fields and types" tabindex="0">
+          <table class="field-table">
+            <thead><tr><th scope="col">Field</th><th scope="col">Detected type</th><th scope="col">Date order</th></tr></thead>
+            <tbody id="columns-list"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="data-card panel focus-card">
+        <div class="data-card-header">
+          <div><h3>Choose what to explore</h3><p>Optional settings help tailor your breakdown and report.</p></div>
+          <span class="auto-pill">NOTHING IS ASSUMED</span>
+        </div>
+        <div class="focus-controls">
+          <label for="measure-select">Measure <span class="control-help">numeric field to total or average</span><select id="measure-select"><option value="">Automatic</option></select></label>
+          <label for="dimension-select">Group by <span class="control-help">category to compare</span><select id="dimension-select"><option value="">Automatic</option></select></label>
+        </div>
+        <div class="advanced-options">
+          <label class="check-option"><input id="normalize-categories" type="checkbox" checked><span>Merge category labels that only differ by case or spacing</span></label>
+          <label class="check-option"><input id="normalize-booleans" type="checkbox" checked><span>Normalize Yes/No fields to consistent Yes/No values</span></label>
+          <label class="check-option hidden" id="derive-revenue-container"><input id="derive-revenue" type="checkbox"><span id="revenue-suggestion-label">Add suggested computed revenue</span></label>
+          <p class="option-note">All source rows and suspicious values remain available; flags never delete negative or unusual data.</p>
+        </div>
+      </div>
+
+      <div class="data-card panel validation-card">
+        <div class="data-card-header"><div><h3>Custom validation rules</h3><p>Flag rows that do not match your own requirements.</p></div><span class="auto-pill">REVIEW ONLY</span></div>
+        <div class="rule-list" id="validation-list"></div>
+        <div class="rule-actions"><button type="button" class="quiet-button" id="add-validation">+ Add rule</button><span class="option-note">Rules appear in Data Quality; they never delete or rewrite source values.</span></div>
+      </div>
+
+      <div class="action-row">
+        <div class="action-hint"><span class="hint-spark" aria-hidden="true">✳</span> Your original file is never changed.</div>
+        <button type="button" class="primary-button" id="analyze-button"><span>Clean &amp; create report</span><span class="button-arrow" aria-hidden="true">→</span></button>
+      </div>
+      <div class="progress-status hidden" id="analysis-progress" role="status" aria-live="polite">
+        <span class="progress-spinner" aria-hidden="true"></span><span>Cleaning data and building your workbook…</span>
+        <progress aria-label="Analysis in progress"></progress>
+      </div>
+    </section>
+
+    <section class="results-section hidden" id="results" aria-labelledby="results-title">
+      <div class="section-heading">
+        <div class="step-number success-step">03</div>
+        <div class="section-heading-copy">
+          <h2 id="results-title" tabindex="-1">Your clearer picture</h2>
+          <p>Your cleaned data and analysis workbook are ready.</p>
+        </div>
+        <span class="ready-badge"><span class="online-dot"></span> READY</span>
+      </div>
+      <div class="result-stats">
+        <article class="result-stat"><span class="stat-label">CLEAN RECORDS</span><strong id="clean-row-result">—</strong><small>ready to explore</small></article>
+        <article class="result-stat"><span class="stat-label">DUPLICATES REMOVED</span><strong id="duplicate-result">—</strong><small>exact matches</small></article>
+        <article class="result-stat"><span class="stat-label">BLANK ROWS REMOVED</span><strong id="blank-result">—</strong><small>completely empty</small></article>
+        <article class="result-stat"><span class="stat-label">FIELDS ANALYSED</span><strong id="field-result">—</strong><small>all retained</small></article>
+      </div>
+      <div class="data-card panel quality-card" id="quality-card">
+        <div class="data-card-header"><div><h3>Data quality review</h3><p>These are review flags, not automatic deletions.</p></div><span class="quality-count" id="quality-count">—</span></div>
+        <ul class="quality-list" id="quality-list"></ul>
+      </div>
+      <div class="data-card panel output-card">
+        <div class="data-card-header">
+          <div><h3>Your deliverables</h3><p>Download your analysis workbook or cleaned data.</p></div>
+          <span class="ready-badge"><span class="online-dot"></span> COMPLETE</span>
+        </div>
+        <div class="download-list">
+          <a class="download-item" id="report-link" href="#">
+            <span class="download-icon excel-icon" aria-hidden="true">X</span>
+            <span class="download-copy"><strong>Analysis report</strong><small>Excel workbook · insights, quality flags &amp; charts</small></span>
+            <span class="download-action">Download <b aria-hidden="true">↓</b></span>
+          </a>
+          <a class="download-item" id="csv-link" href="#">
+            <span class="download-icon csv-icon" aria-hidden="true">▤</span>
+            <span class="download-copy"><strong>Cleaned data</strong><small>CSV file · ready for your workflow</small></span>
+            <span class="download-action">Download <b aria-hidden="true">↓</b></span>
+          </a>
+        </div>
+      </div>
+      <div class="data-card panel preview-result-card">
+        <div class="data-card-header"><div><h3>Cleaned data preview</h3><p>A quick look at the first rows of your result.</p></div></div>
+        <div class="table-wrap" role="region" aria-label="Cleaned data preview" tabindex="0"><table id="result-table"></table></div>
+      </div>
+      <div class="restart-row"><span>Have another file?</span><button type="button" class="text-button" id="restart-button">Start a new analysis →</button></div>
+    </section>
+  </main>
+
+  <footer class="page-footer"><span>ClearView works on your computer, without external services.</span><span>Files and reports are automatically cleared after a short retention period.</span></footer>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="{{ url_for('static', filename='app.js') }}?v=20261115-2" defer></script>
+</body>
+</html>

@@ -1,0 +1,151 @@
+Respondent	Age	City	Satisfaction	Income	Submitted	Comments
+R001	-5	vadodara	4	$1,200	Jan 15 2025	
+R002	25	Surat	2		2025-01-15	Good
+R003	42	vadodara	5		2025-01-15	Great, thanks
+R004	230	RAJKOT	4	1.2L	yesterday	
+R005	29.5	Rajkot	5	$1,200	2025-01-15	=1+1
+R006	-5		N/A	$1,200	2025-01-15	Great, thanks
+R007	forty		five	$1,200	Jan 15 2025	
+R008	31	RAJKOT	1	₹25,000	yesterday	=1+1
+R009	-5	vadodara	3	unknown		
+R010		RAJKOT	3	unknown	yesterday	-
+R011		RAJKOT	2		15/01/2025	Good
+R012	forty	rajkot 	N/A			  ok  
+R013	230	vadodara		45000	2025-01-15	
+R014	31	Rajkot	five	45000	2025-01-15	-
+R015	25		3	45000	Jan 15 2025	
+R016	31	vadodara	3	1.2L	15/01/2025	-
+R017		rajkot 	3	45000		  ok  
+R018	29.5	Vadodara	3	45000	Jan 15 2025	=1+1
+R019	42	vadodara	five		15/01/2025	=1+1
+R020	-5		2		Jan 15 2025	-
+R021	29.5		2		yesterday	Great, thanks
+R022	31	vadodara	5		2025-01-15	  ok  
+R023	-5	rajkot 	90%	₹25,000	yesterday	Good
+R024	31	RAJKOT	90%	$1,200	Jan 15 2025	Good
+R025	42	Surat	5	unknown	2025-01-15	
+R026	-5	rajkot 	3	1.2L		Great, thanks
+R027	25	rajkot 	5	$1,200	yesterday	Good
+R028	-5	Rajkot	five	unknown	yesterday	=1+1
+R029	-5		N/A		yesterday	
+R030	29.5	rajkot 	3	₹25,000	Jan 15 2025	Great, thanks
+R031	31	Surat	4	unknown		Good
+R032	25		N/A	$1,200	yesterday	-
+R033	42	Vadodara	N/A		2025-01-15	  ok  
+R034	forty	Rajkot	3	unknown		Great, thanks
+R035	25	RAJKOT	1	45000	2025-01-15	Great, thanks
+R036	forty		3	1.2L	yesterday	  ok  
+R037	42		N/A	unknown	yesterday	=1+1
+R038	29.5		5	₹25,000	15/01/2025	Great, thanks
+R039	-5	rajkot 	N/A	unknown		Good
+R040	-5	Vadodara	3	unknown	yesterday	=1+1
+R041	42	vadodara	N/A	$1,200	2025-01-15	Great, thanks
+R042	29.5	vadodara	N/A	45000	2025-01-15	
+R043	29.5	Surat	90%	$1,200	yesterday	Good
+R044	29.5	Rajkot	2	1.2L	2025-01-15	Good
+R045	230	rajkot 	4	$1,200		Great, thanks
+R046	31	Vadodara	N/A			-
+R047		vadodara	N/A	$1,200		Great, thanks
+R048	forty		90%	₹25,000		Good
+R049	-5	Surat	3			Great, thanks
+R050	forty	RAJKOT	4	45000	15/01/2025	
+R051	25	Vadodara	5	$1,200	2025-01-15	Good
+R052	230	rajkot 	N/A	1.2L	yesterday	Great, thanks
+R053			3	1.2L		=1+1
+R054		Vadodara	1	₹25,000		-
+R055	-5	RAJKOT	N/A	₹25,000		  ok  
+R056	forty	rajkot 	five	unknown	yesterday	-
+R057	31	rajkot 	1		Jan 15 2025	
+R058	230	vadodara	2	$1,200	Jan 15 2025	Great, thanks
+R059	-5		5	45000	15/01/2025	Good
+R060	31	Vadodara	N/A	unknown	Jan 15 2025	  ok  
+R061	31	Rajkot	five	45000		-
+R062		rajkot 	5		2025-01-15	Good
+R063		Surat	N/A	unknown	Jan 15 2025	Good
+R064	230	vadodara	5	₹25,000	Jan 15 2025	=1+1
+R065	25	rajkot 	5	₹25,000	Jan 15 2025	Good
+R066	25	RAJKOT	N/A	unknown	yesterday	Great, thanks
+R067	29.5	Rajkot	five	₹25,000	yesterday	Great, thanks
+R068		rajkot 	2	45000	2025-01-15	Great, thanks
+R069	29.5	Vadodara	4	45000	yesterday	
+R070	-5			unknown	Jan 15 2025	=1+1
+R071	forty	Rajkot	1		yesterday	-
+R072	25	RAJKOT		$1,200	15/01/2025	=1+1
+R073	230		5	1.2L	15/01/2025	Good
+R074	31		N/A	45000	15/01/2025	
+R075	29.5		3	unknown	2025-01-15	Good
+R076	-5	rajkot 	1	₹25,000		
+R077	forty	RAJKOT	2	1.2L	15/01/2025	Good
+R078	forty	Rajkot	4	45000	2025-01-15	=1+1
+R079	31	rajkot 	90%	$1,200		  ok  
+R080	230	Vadodara	3	$1,200		=1+1
+R081	42	vadodara	2	unknown	2025-01-15	=1+1
+R082	29.5	Rajkot	2	unknown	15/01/2025	Great, thanks
+R083	-5		3	₹25,000	yesterday	Great, thanks
+R084	230	Vadodara		1.2L	15/01/2025	-
+R085	230	Vadodara	3	1.2L	Jan 15 2025	-
+R086	31	vadodara	N/A	45000	Jan 15 2025	
+R087	forty	vadodara	4	45000		Great, thanks
+R088	230	vadodara		1.2L	yesterday	Great, thanks
+R089	42	RAJKOT	4	$1,200	Jan 15 2025	Good
+R090	31	rajkot 	2	1.2L	15/01/2025	Great, thanks
+R091	29.5	Surat		₹25,000		Good
+R092	25	vadodara	90%	45000	2025-01-15	-
+R093	42	RAJKOT	five	1.2L	Jan 15 2025	  ok  
+R094	-5	Surat	4		Jan 15 2025	  ok  
+R095	25	RAJKOT	five	unknown	yesterday	Good
+R096	25	Surat	5	₹25,000	yesterday	Great, thanks
+R097	31	Rajkot	90%			Great, thanks
+R098	29.5	rajkot 	1	unknown	yesterday	Great, thanks
+R099	29.5	RAJKOT	1	45000		
+R100			N/A	1.2L	2025-01-15	
+R101	-5	rajkot 	1	₹25,000	2025-01-15	=1+1
+R102	25	vadodara	90%	₹25,000		Good
+R103	31	rajkot 	1	1.2L	2025-01-15	-
+R104	forty	Vadodara	4	₹25,000	Jan 15 2025	-
+R105	25	Surat	N/A	1.2L	yesterday	-
+R106	42	vadodara	1	₹25,000	15/01/2025	  ok  
+R107	forty	RAJKOT	five	$1,200		Good
+R108	-5	Vadodara	3			  ok  
+R109		vadodara	1	45000	Jan 15 2025	=1+1
+R110	forty	Surat		unknown	15/01/2025	
+R111	25		five	unknown		-
+R112	forty	Vadodara	90%	₹25,000	2025-01-15	Good
+R113	31	rajkot 	N/A	₹25,000		Good
+R114	31	Surat	1	45000	2025-01-15	Great, thanks
+R115	42		N/A	45000	yesterday	-
+R116	230	Vadodara	4	$1,200	Jan 15 2025	  ok  
+R117	-5	Surat		45000		
+R118	29.5	Rajkot	5	45000	yesterday	  ok  
+R119	29.5	rajkot 	N/A	$1,200	2025-01-15	Great, thanks
+R120	42	Rajkot	2	45000	15/01/2025	Good
+R121	42	Vadodara	3	₹25,000	yesterday	
+R122	-5	Vadodara	4	1.2L	2025-01-15	
+R123	forty		five	45000		
+R124	-5	rajkot 	five	45000	2025-01-15	-
+R125		Surat		unknown	2025-01-15	Great, thanks
+R126	forty	Rajkot		1.2L	15/01/2025	=1+1
+R127	42	Rajkot	N/A	1.2L	yesterday	Good
+R128	25	rajkot 	3		yesterday	Great, thanks
+R129	forty	Surat	90%		2025-01-15	Great, thanks
+R130	25	RAJKOT	5	₹25,000	2025-01-15	  ok  
+R131	29.5	rajkot 	2	45000	yesterday	=1+1
+R132		RAJKOT	5	1.2L	yesterday	Good
+R133	230	RAJKOT	5	1.2L		Good
+R134	230		N/A	45000	15/01/2025	  ok  
+R135		RAJKOT	3		15/01/2025	=1+1
+R136	42	RAJKOT	4	45000	15/01/2025	=1+1
+R137	31	Vadodara	five	unknown	Jan 15 2025	Great, thanks
+R138	31	RAJKOT	2		yesterday	Good
+R139	25	Surat	2		yesterday	-
+R140	31	Rajkot	five	45000	yesterday	=1+1
+R141	-5	rajkot 	90%			-
+R142	42		N/A	unknown	2025-01-15	
+R143	forty	RAJKOT	3			=1+1
+R144	forty	Vadodara		45000	2025-01-15	=1+1
+R145	230	Vadodara	5	unknown	Jan 15 2025	=1+1
+R146		Surat		unknown	2025-01-15	=1+1
+R147	29.5	rajkot 	N/A	₹25,000		  ok  
+R148		rajkot 	2	1.2L		Good
+R149	31	RAJKOT		1.2L	Jan 15 2025	=1+1
+R150		vadodara	five	1.2L	yesterday	  ok  

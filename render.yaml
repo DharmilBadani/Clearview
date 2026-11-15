@@ -1,0 +1,28 @@
+services:
+  - type: web
+    name: clearview
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn --bind 0.0.0.0:$PORT --workers 1 --threads 4 --timeout 120 client_app:app
+    healthCheckPath: /api/health
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.12.7
+      - key: CLEARVIEW_ENV
+        value: production
+      - key: CLEARVIEW_HOST
+        value: 0.0.0.0
+      - key: CLEARVIEW_OPEN_BROWSER
+        value: "false"
+      - key: CLEARVIEW_ALLOWED_HOSTS
+        value: "*"
+      - key: CLEARVIEW_THREADS
+        value: "4"
+      - key: CLEARVIEW_MAX_UPLOAD_MB
+        value: "100"
+      - key: CLEARVIEW_MAX_SESSIONS
+        value: "20"
+      - key: CLEARVIEW_SESSION_TTL_MINUTES
+        value: "30"
+      - key: CLEARVIEW_OUTPUT_TTL_DAYS
+        value: "7"

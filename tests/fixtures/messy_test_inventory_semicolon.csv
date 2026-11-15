@@ -1,0 +1,499 @@
+Item Code;Item;Category;Supplier;Warehouse;Stock On Hand;Unit Cost;Tax Rate;Last Restock;Active?;Contact Phone;Remarks;
+;;;;;;;;;;;;
+SKU-0177;Safety Gloves;Lighting;ACME Corp;Ahmedabad;448;€ 584.39;;;false;;"note; with semicolon";
+SKU-0225;Safety Gloves;Lighting;Sharma & Sons;Ahmedabad;12 pcs;379.21;12.5%;2025/08/23;false;(079) 2345-6789;Ünïcödé ?;
+00743;Café Table;Office;Tata Supplies;Rajkot;-3;485,17;0.18;Oct 6, 2023;no;0079 2345 6789;@reorder;
+08644;Résumé Paper A4;Hardware;Sharma & Sons;Ahmedabad;474;?;N/A;19-Apr-25;Y;(079) 2345-6789;"line1
+line2";
+61222;LED Panel 40W;Office;Škoda Parts;Rajkot;71;448.86;5%;31/02/2024;TRUE;;"=HYPERLINK(""http://x"")";
+66428;Safety Gloves;Electrical;Global Trade Ltd;Rajkot;391;318.61;12.5%;12.05.2024;1;not provided;"note; with semicolon";
+;;;;;;;;;;;;
+55628;Steel Bolt M8;Safety;Müller GmbH;Surat;1e3;782.46;150%;TBD;N;not provided;"=HYPERLINK(""http://x"")";
+39519;LED Panel 40W;Office;Tata Supplies;Rajkot;many;-;;Apr 11, 2023;no;(079) 2345-6789;"line1
+line2";
+17990;Lubricant 5L;Electrical;Global Trade Ltd;Ahmedabad;12 pcs;359.03;18;00/00/0000;1;(079) 2345-6789;"=HYPERLINK(""http://x"")";
+SKU-0322;Steel Bolt M8;Safety;Sharma & Sons;Rajkot;391;-;0.18;09.02.2023;false;0079 2345 6789;;
+SKU-0202;LED Panel 40W;Lighting;ACME Corp;Rajkot;333;411.33;5%;18.01.2024;false;+91 98765 43210;"=HYPERLINK(""http://x"")";
+SKU-0181;Pallet Jack;Equipment;ACME Corp;Rajkot;-3;812.67;0.18;Jun 25, 2022;N;0079 2345 6789;"=HYPERLINK(""http://x"")";
+70239;Copper Wire 2mm;Lighting;Sharma & Sons;Ahmedabad;165;818,82;12.5%;Jul 3, 2025;1;+91 98765 43210;Ünïcödé ?;
+26012;Résumé Paper A4;Lighting;ACME Corp;Ahmedabad;263071;-;0,18;04/06/2022;no;0079 2345 6789;"=HYPERLINK(""http://x"")";
+13429;Safety Gloves;Equipment;Škoda Parts;Rajkot;29;206,80;0,18;TBD;N;0079 2345 6789;@reorder;
+SKU-0006;Lubricant 5L;Lighting;Global Trade Ltd;Surat;359;€ 798.45;100%;20.03.2024;N;98765-43210;Fragile — handle with care;
+75624;Lubricant 5L;Safety;Müller GmbH;Vadodara;422;-;5%;May 18, 2024;Yes;;@reorder;
+SKU-0007;Lubricant 5L;Hardware;Tata Supplies;Surat;378;€ 362.08;0.18;;1;(079) 2345-6789;Fragile — handle with care;
+SKU-0088;Steel Bolt M8;Safety;Škoda Parts;Ahmedabad;  ;35.29;0.18;12.09.2023;;(079) 2345-6789;"line1
+line2";
+23743;Safety Gloves;Lighting;Global Trade Ltd;Vadodara;122;478,45;100%;2023-05-12;Yes;+91 98765 43210;"line1
+line2";
+SKU-0216;Copper Wire 2mm;Electrical;Global Trade Ltd;Ahmedabad;-3;761.31;12.5%;TBD;0;(079) 2345-6789;"=HYPERLINK(""http://x"")";
+40020;Résumé Paper A4;Equipment;Global Trade Ltd;Ahmedabad;169;816.56;;27.01.2022;0;98765-43210;Ünïcödé ?;
+SKU-0379;LED Panel 40W;Equipment;Global Trade Ltd;Surat;-3;274.25;5%;06/12/2024;Yes;(079) 2345-6789;;
+03469;Copper Wire 2mm;Office;Global Trade Ltd;Ahmedabad;;-;N/A;31/02/2024;1;0079 2345 6789;"line1
+line2";
+23536;Lubricant 5L;Safety;Müller GmbH;Ahmedabad;1e3;€ 116.48;12.5%;2025-09-17;Y;+91 98765 43210;"line1
+line2";
+SKU-0135;Café Table;Lighting;Sharma & Sons;Rajkot;1e3;862,93;N/A;2-Jan-22;TRUE;not provided;Ünïcödé ?;
+SKU-0278;Safety Gloves;Lighting;Global Trade Ltd;Vadodara;353;118,97;100%;23-Dec-24;;0079 2345 6789;"=HYPERLINK(""http://x"")";
+SKU-0049;Lubricant 5L;Electrical;Müller GmbH;Ahmedabad;371;71,34;N/A;Sep 25, 2022;TRUE;;;
+84690;Steel Bolt M8;Equipment;Global Trade Ltd;Mumbai;254;844.9;;Dec 22, 2025;1;98765-43210;@reorder;
+20287;LED Panel 40W;Office;Sharma & Sons;Rajkot;108;881.34;0,18;Feb 9, 2024;1;(079) 2345-6789;@reorder;
+64611;Steel Bolt M8;Office;ACME Corp;Surat;12 pcs;€ 326.73;5%;00/00/0000;0;(079) 2345-6789;"=HYPERLINK(""http://x"")";
+05661;Safety Gloves;Equipment;Müller GmbH;Surat;90;710.78;0,18;2022-06-23;;98765-43210;"note; with semicolon";
+74840;Pallet Jack;Lighting;Tata Supplies;Vadodara;214;€ 442.42;100%;2022-03-17;N;not provided;@reorder;
+92003;Safety Gloves;Safety;ACME Corp;Ahmedabad;207;€ 636.98;12.5%;2023/10/04;false;0079 2345 6789;"line1
+line2";
+50509;LED Panel 40W;Equipment;Tata Supplies;Mumbai;1e3;n.a.;12.5%;;0;0079 2345 6789;Ünïcödé ?;
+SKU-0237;Copper Wire 2mm;Office;Sharma & Sons;Ahmedabad;57;395,31;18;18-Apr-24;Yes;+91 98765 43210;"=HYPERLINK(""http://x"")";
+SKU-0199;Café Table;Safety;Škoda Parts;Ahmedabad;-3;81.96;5%;Aug 3, 2022;Yes;0079 2345 6789;Fragile — handle with care;
+80371;LED Panel 40W;Equipment;ACME Corp;Ahmedabad;-3;270,94;100%;;no;0079 2345 6789;"line1
+line2";
+07783;LED Panel 40W;Lighting;ACME Corp;Surat;326;-;0.18;TBD;N;0079 2345 6789;Fragile — handle with care;
+86745;Lubricant 5L;Electrical;Global Trade Ltd;Ahmedabad;416;€ 290.44;N/A;5-Jul-22;false;98765-43210;"line1
+line2";
+SKU-0157;Café Table;Hardware;ACME Corp;Ahmedabad;250;-;0,18;2023-02-05;Y;98765-43210;"=HYPERLINK(""http://x"")";
+SKU-0026;Safety Gloves;Safety;Müller GmbH;Surat;-3;591.2;N/A;Dec 7, 2024;Y;;"=HYPERLINK(""http://x"")";
+55210;Lubricant 5L;Safety;Škoda Parts;Mumbai;1e3;809.34 EUR;150%;2022/03/12;TRUE;not provided;Fragile — handle with care;
+34465;LED Panel 40W;Office;ACME Corp;Vadodara;135;452,08;150%;;Yes;(079) 2345-6789;"=HYPERLINK(""http://x"")";
+44535;Café Table;Electrical;Škoda Parts;Ahmedabad;431;565,74;18;TBD;0;(079) 2345-6789;"=HYPERLINK(""http://x"")";
+98589;Steel Bolt M8;Office;Tata Supplies;Mumbai;many;861.04;150%;00/00/0000;false;+91 98765 43210;;
+SKU-0087;Copper Wire 2mm;Safety;Tata Supplies;Surat;232;-;0,18;2025-08-15;;0079 2345 6789;"line1
+line2";
+SKU-0056;Café Table;Equipment;Tata Supplies;Surat;  ;543.13;5%;31/02/2024;Yes;98765-43210;"=HYPERLINK(""http://x"")";
+25205;LED Panel 40W;Lighting;Sharma & Sons;Ahmedabad;436;€ 101.12;150%;2025-10-09;Y;;Ünïcödé ?;
+SKU-0127;Safety Gloves;Electrical;Škoda Parts;Surat;166;699.15;5%;31/02/2024;TRUE;0079 2345 6789;"note; with semicolon";
+SKU-0376;Lubricant 5L;Office;Škoda Parts;Vadodara;13;753.42 EUR;;21-Jul-22;no;;"note; with semicolon";
+41255;Steel Bolt M8;Electrical;ACME Corp;Mumbai;  ;423.73 EUR;N/A;2022/05/13;;98765-43210;Ünïcödé ?;
+32732;LED Panel 40W;Lighting;Global Trade Ltd;Mumbai;153;538.24;5%;2023-12-12;1;(079) 2345-6789;"=HYPERLINK(""http://x"")";
+SKU-0063;Résumé Paper A4;Lighting;Sharma & Sons;Rajkot;-3;none;150%;2025-03-01;0;(079) 2345-6789;@reorder;
+33225;Copper Wire 2mm;Electrical;Sharma & Sons;Vadodara;92;638,48;100%;19.09.2023;no;;"line1
+line2";
+04175;Copper Wire 2mm;Equipment;Müller GmbH;Mumbai;146;?;0.18;TBD;1;(079) 2345-6789;Fragile — handle with care;
+SKU-0019;Copper Wire 2mm;Safety;ACME Corp;Mumbai;-3;-;18;00/00/0000;N;0079 2345 6789;"note; with semicolon";
+SKU-0343;Lubricant 5L;Office;Sharma & Sons;Ahmedabad;445;€ 122.14;18;2023/11/15;false;;@reorder;
+92211;LED Panel 40W;Lighting;ACME Corp;Mumbai;;€ 836.67;0.18;22.05.2022;;0079 2345 6789;@reorder;
+85014;Safety Gloves;Electrical;Škoda Parts;Vadodara;389;217.55;0,18;;TRUE;+91 98765 43210;@reorder;
+SKU-0029;LED Panel 40W;Safety;Sharma & Sons;Ahmedabad;397;€ 355.19;18;11/12/2022;1;98765-43210;"line1
+line2";
+15847;Café Table;Hardware;ACME Corp;Vadodara;372;755,36;18;10-Dec-22;1;;Ünïcödé ?;
+SKU-0082;Résumé Paper A4;Office;Müller GmbH;Vadodara;475;€ 186.30;150%;Jul 21, 2023;;not provided;Ünïcödé ?;
+82794;Pallet Jack;Hardware;Global Trade Ltd;Vadodara;268;209.01;100%;2025-01-06;0;;"=HYPERLINK(""http://x"")";
+SKU-0301;Pallet Jack;Hardware;ACME Corp;Surat;130;61.41;150%;11-May-22;1;+91 98765 43210;;
+SKU-0020;Safety Gloves;Safety;Tata Supplies;Surat;448;€ 110.34;12.5%;Jul 3, 2023;no;(079) 2345-6789;"line1
+line2";
+SKU-0040;Lubricant 5L;Safety;Tata Supplies;Mumbai;112;173,97;;2022/06/08;N;+91 98765 43210;"line1
+line2";
+98414;Pallet Jack;Equipment;Škoda Parts;Mumbai;110;480.3;5%;Dec 1, 2023;N;0079 2345 6789;"line1
+line2";
+97109;Pallet Jack;Safety;Tata Supplies;Ahmedabad;  ;76.95;150%;8-Oct-24;Y;(079) 2345-6789;"=HYPERLINK(""http://x"")";
+69668;Steel Bolt M8;Safety;Tata Supplies;Rajkot;127;144.14;12.5%;Oct 18, 2022;N;not provided;"note; with semicolon";
+68197;Steel Bolt M8;Safety;Tata Supplies;Ahmedabad;412;€ 259.48;0.18;00/00/0000;0;not provided;"note; with semicolon";
+SKU-0139;Steel Bolt M8;Hardware;ACME Corp;Mumbai;12 pcs;€ 4.52;12.5%;Nov 1, 2022;;not provided;"=HYPERLINK(""http://x"")";
+69992;Copper Wire 2mm;Office;Tata Supplies;Surat;407;€ 626.17;0,18;2-Jul-24;false;;@reorder;
+SKU-0161;LED Panel 40W;Safety;ACME Corp;Ahmedabad;224;399.4 EUR;;00/00/0000;0;;"note; with semicolon";
+14465;Pallet Jack;Hardware;Tata Supplies;Mumbai;339;642,16;5%;2025/02/09;Yes;not provided;@reorder;
+SKU-0149;Café Table;Safety;Müller GmbH;Surat;15;224.33;;10.03.2022;N;0079 2345 6789;"line1
+line2";
+81872;Lubricant 5L;Electrical;Müller GmbH;Surat;;822.46;5%;TBD;N;98765-43210;Fragile — handle with care;
+57154;Steel Bolt M8;Equipment;Tata Supplies;Vadodara;423;686.2;5%;TBD;0;not provided;"=HYPERLINK(""http://x"")";
+SKU-0106;Pallet Jack;Equipment;Škoda Parts;Rajkot;500;?;18;2025-05-23;TRUE;;Fragile — handle with care;
+SKU-0316;LED Panel 40W;Lighting;Tata Supplies;Mumbai;-3;€ 172.19;18;Jul 1, 2022;N;not provided;"note; with semicolon";
+SKU-0266;LED Panel 40W;Electrical;Sharma & Sons;Rajkot;-3;523.69;5%;02/10/2023;0;;"=HYPERLINK(""http://x"")";
+SKU-0003;Safety Gloves;Lighting;Müller GmbH;Mumbai;349;641.19 EUR;18;;0;98765-43210;"=HYPERLINK(""http://x"")";
+94754;Copper Wire 2mm;Safety;Škoda Parts;Vadodara;476;360.58;;09/12/2024;;;"line1
+line2";
+SKU-0158;LED Panel 40W;Hardware;Global Trade Ltd;Vadodara;12 pcs;€ 668.35;0.18;2024/06/08;false;98765-43210;Fragile — handle with care;
+86408;Pallet Jack;Office;ACME Corp;Rajkot;432;42.04;5%;21.05.2025;N;+91 98765 43210;;
+SKU-0218;Safety Gloves;Electrical;Tata Supplies;Mumbai;;412,66;100%;;false;;@reorder;
+SKU-0391;Café Table;Safety;Müller GmbH;Rajkot;12 pcs;62.87;100%;31/02/2024;Y;(079) 2345-6789;"line1
+line2";
+SKU-0163;Copper Wire 2mm;Electrical;Global Trade Ltd;Mumbai;434;335.44 EUR;N/A;31/02/2024;TRUE;+91 98765 43210;Fragile — handle with care;
+SKU-0227;Safety Gloves;Equipment;ACME Corp;Surat;95;n.a.;N/A;TBD;N;not provided;@reorder;
+86323;Copper Wire 2mm;Safety;Global Trade Ltd;Surat;269;720.52 EUR;12.5%;31/02/2024;TRUE;0079 2345 6789;;
+SKU-0012;Pallet Jack;Equipment;ACME Corp;Rajkot;12 pcs;320,77;150%;31/02/2024;1;0079 2345 6789;Ünïcödé ?;
+40896;Steel Bolt M8;Electrical;Müller GmbH;Surat;196;638.85;100%;;0;(079) 2345-6789;Ünïcödé ?;
+SKU-0145;Safety Gloves;Office;Tata Supplies;Ahmedabad;12 pcs;177.47;0.18;Aug 27, 2025;false;(079) 2345-6789;"line1
+line2";
+SKU-0331;Pallet Jack;Safety;ACME Corp;Rajkot;148;656.62;0,18;2025/06/03;N;(079) 2345-6789;Ünïcödé ?;
+78375;Lubricant 5L;Office;Müller GmbH;Surat;12 pcs;196,05;100%;2023/04/10;no;;;
+19779;Café Table;Electrical;Tata Supplies;Vadodara;459;-;N/A;00/00/0000;Y;;"note; with semicolon";
+SKU-0130;Lubricant 5L;Safety;ACME Corp;Ahmedabad;363;218,79;150%;2025-10-13;N;98765-43210;"note; with semicolon";
+68401;Café Table;Safety;Sharma & Sons;Mumbai;1e3;182,48;12.5%;2023/12/10;false;;Ünïcödé ?;
+95206;Copper Wire 2mm;Equipment;Global Trade Ltd;Rajkot;-3;390.99;18;7-May-22;false;98765-43210;"note; with semicolon";
+SKU-0157;Café Table;Hardware;ACME Corp;Ahmedabad;250;-;0,18;2023-02-05;Y;98765-43210;"=HYPERLINK(""http://x"")";
+94606;Pallet Jack;Lighting;Tata Supplies;Vadodara;12 pcs;288.97;12.5%;;false;(079) 2345-6789;"note; with semicolon";
+SKU-0135;Café Table;Lighting;Sharma & Sons;Rajkot;1e3;862,93;N/A;2-Jan-22;TRUE;not provided;Ünïcödé ?;
+91387;Steel Bolt M8;Office;Müller GmbH;Rajkot;440;700.79;0,18;24-Feb-24;;(079) 2345-6789;@reorder;
+SKU-0226;Café Table;Electrical;Tata Supplies;Mumbai;294;726,89;0,18;2023-11-10;1;98765-43210;"line1
+line2";
+SKU-0208;Copper Wire 2mm;Electrical;Tata Supplies;Surat;  ;244.79;18;31/02/2024;false;(079) 2345-6789;Fragile — handle with care;
+05661;Safety Gloves;Equipment;Müller GmbH;Surat;90;710.78;0,18;2022-06-23;;98765-43210;"note; with semicolon";
+SKU-0291;Café Table;Hardware;Tata Supplies;Mumbai;-3;721,75;N/A;21.07.2023;false;98765-43210;"=HYPERLINK(""http://x"")";
+SKU-0305;Steel Bolt M8;Safety;Sharma & Sons;Mumbai;12 pcs;€ 13.41;5%;00/00/0000;;not provided;Fragile — handle with care;
+SKU-0229;Steel Bolt M8;Equipment;Global Trade Ltd;Mumbai;322;-;;00/00/0000;1;0079 2345 6789;;
+SKU-0017;Café Table;Safety;Global Trade Ltd;Mumbai;  ;733.73;150%;00/00/0000;0;(079) 2345-6789;"note; with semicolon";
+SKU-0079;Lubricant 5L;Lighting;Sharma & Sons;Ahmedabad;many;710,36;150%;2022-06-16;N;0079 2345 6789;Ünïcödé ?;
+SKU-0345;Lubricant 5L;Equipment;Tata Supplies;Rajkot;455;183.53;;2022/03/11;Yes;not provided;"line1
+line2";
+SKU-0170;Copper Wire 2mm;Lighting;ACME Corp;Mumbai;229;195.47;5%;2023/03/27;false;not provided;@reorder;
+SKU-0141;Café Table;Electrical;Global Trade Ltd;Rajkot;;319,11;0,18;2022/10/03;1;+91 98765 43210;;
+SKU-0271;Copper Wire 2mm;Safety;Sharma & Sons;Surat;261;848.2 EUR;;;0;0079 2345 6789;;
+39161;Résumé Paper A4;Equipment;Škoda Parts;Ahmedabad;134;276,86;N/A;9-Sep-25;Yes;(079) 2345-6789;"note; with semicolon";
+78567;Safety Gloves;Hardware;ACME Corp;Surat;72;610,81;0,18;TBD;no;;;
+01930;Copper Wire 2mm;Safety;ACME Corp;Vadodara;467;656,77;100%;31/02/2024;0;0079 2345 6789;Fragile — handle with care;
+SKU-0045;Lubricant 5L;Equipment;Tata Supplies;Mumbai;142;223.11;0,18;TBD;1;+91 98765 43210;"=HYPERLINK(""http://x"")";
+26231;Steel Bolt M8;Hardware;Škoda Parts;Ahmedabad;12 pcs;362.38;18;31/02/2024;Yes;(079) 2345-6789;@reorder;
+95207;Pallet Jack;Hardware;Global Trade Ltd;Surat;448;584,22;100%;3-Apr-24;N;not provided;"note; with semicolon";
+SKU-0131;Safety Gloves;Lighting;Müller GmbH;Ahmedabad;166;143,55;;00/00/0000;false;0079 2345 6789;Ünïcödé ?;
+74578;Copper Wire 2mm;Lighting;Müller GmbH;Mumbai;462;65.89;;08/05/2023;;+91 98765 43210;@reorder;
+SKU-0008;Steel Bolt M8;Safety;Sharma & Sons;Rajkot;42;237,21;N/A;2024/10/19;;not provided;"line1
+line2";
+SKU-0368;LED Panel 40W;Lighting;ACME Corp;Surat;429;€ 428.30;;03/02/2023;Y;not provided;"note; with semicolon";
+03245;Café Table;Electrical;Škoda Parts;Mumbai;;436,09;5%;31/02/2024;Y;0079 2345 6789;Ünïcödé ?;
+SKU-0118;Café Table;Safety;ACME Corp;Rajkot;427;832,65;0,18;2-Mar-25;Yes;;Ünïcödé ?;
+15354;Pallet Jack;Equipment;Global Trade Ltd;Rajkot;12 pcs;571.49;18;21-May-24;0;0079 2345 6789;Ünïcödé ?;
+SKU-0134;Résumé Paper A4;Office;ACME Corp;Ahmedabad;149;708.58;100%;09/05/2025;Y;;"note; with semicolon";
+20168;Café Table;Safety;Škoda Parts;Ahmedabad;365;820.64;100%;31/02/2024;1;(079) 2345-6789;"=HYPERLINK(""http://x"")";
+07882;LED Panel 40W;Safety;Škoda Parts;Vadodara;1e3;659.72;0.18;00/00/0000;Yes;98765-43210;"line1
+line2";
+70104;Résumé Paper A4;Office;Sharma & Sons;Vadodara;301;27.12;0.18;2022-12-08;Y;98765-43210;"line1
+line2";
+SKU-0159;Résumé Paper A4;Hardware;Tata Supplies;Surat;29;381.26;0,18;Mar 23, 2022;0;0079 2345 6789;@reorder;
+SKU-0100;Safety Gloves;Hardware;Global Trade Ltd;Surat;many;563,12;0.18;25.07.2022;false;(079) 2345-6789;Ünïcödé ?;
+SKU-0114;Pallet Jack;Equipment;Sharma & Sons;Surat;74;682,35;;13.05.2024;1;(079) 2345-6789;@reorder;
+SKU-0219;Café Table;Office;Sharma & Sons;Surat;485;713,86;100%;TBD;TRUE;;Fragile — handle with care;
+80416;Pallet Jack;Safety;Tata Supplies;Vadodara;1e3;452.49;18;Oct 17, 2024;Yes;(079) 2345-6789;Fragile — handle with care;
+SKU-0156;Pallet Jack;Electrical;Sharma & Sons;Ahmedabad;82;41.98;100%;2022/12/23;TRUE;+91 98765 43210;"line1
+line2";
+SKU-0189;Pallet Jack;Safety;Škoda Parts;Vadodara;many;€ 486.46;0.18;11/01/2025;N;not provided;"note; with semicolon";
+32816;Steel Bolt M8;Lighting;Škoda Parts;Rajkot;  ;335.02;N/A;2022-04-28;no;;"line1
+line2";
+01547;Safety Gloves;Electrical;Tata Supplies;Vadodara;-3;488.95;12.5%;31/02/2024;Y;;;
+SKU-0219;Café Table;Office;Sharma & Sons;Surat;485;713,86;100%;TBD;TRUE;;Fragile — handle with care;
+SKU-0120;Lubricant 5L;Lighting;Tata Supplies;Rajkot;  ;NULL;0,18;00/00/0000;Yes;not provided;Ünïcödé ?;
+30447;Steel Bolt M8;Hardware;ACME Corp;Vadodara;231;€ 640.80;150%;00/00/0000;N;+91 98765 43210;"note; with semicolon";
+92964;Résumé Paper A4;Electrical;Tata Supplies;Vadodara;440;183.68;0,18;31/02/2024;TRUE;(079) 2345-6789;Ünïcödé ?;
+SKU-0039;Pallet Jack;Safety;Global Trade Ltd;Rajkot;144;271.45 EUR;N/A;02/04/2022;;;"note; with semicolon";
+SKU-0004;Copper Wire 2mm;Equipment;ACME Corp;Mumbai;;€ 446.11;100%;03.10.2024;Y;98765-43210;Fragile — handle with care;
+SKU-0144;Résumé Paper A4;Lighting;Škoda Parts;Ahmedabad;287;€ 865.14;;TBD;N;;;
+37041;Steel Bolt M8;Office;Global Trade Ltd;Surat;;790,92;N/A;31/02/2024;TRUE;not provided;Fragile — handle with care;
+SKU-0010;Café Table;Equipment;Müller GmbH;Ahmedabad;52;-;0.18;2024/06/20;no;;@reorder;
+SKU-0267;Pallet Jack;Office;Škoda Parts;Ahmedabad;1e3;47.38;12.5%;3-May-22;1;+91 98765 43210;"note; with semicolon";
+72783;Safety Gloves;Electrical;Tata Supplies;Mumbai;131;452.11;5%;31/02/2024;N;+91 98765 43210;Ünïcödé ?;
+05630;Steel Bolt M8;Electrical;Global Trade Ltd;Ahmedabad;;€ 34.38;;;N;98765-43210;"note; with semicolon";
+SKU-0045;Lubricant 5L;Equipment;Tata Supplies;Mumbai;142;223.11;0,18;TBD;1;+91 98765 43210;"=HYPERLINK(""http://x"")";
+13201;LED Panel 40W;Safety;Tata Supplies;Mumbai;many;€ 807.28;N/A;05.05.2025;N;(079) 2345-6789;@reorder;
+58933;Lubricant 5L;Electrical;ACME Corp;Vadodara;336;161.79;0,18;TBD;;+91 98765 43210;Ünïcödé ?;
+82187;Lubricant 5L;Office;Tata Supplies;Rajkot;460;423,52;0,18;Dec 21, 2025;1;0079 2345 6789;;
+SKU-0281;Copper Wire 2mm;Safety;Müller GmbH;Vadodara;many;120.61;150%;31/02/2024;no;0079 2345 6789;Ünïcödé ?;
+76228;Café Table;Equipment;Tata Supplies;Surat;;596.23;0.18;23-Aug-25;Y;98765-43210;@reorder;
+47382;Copper Wire 2mm;Electrical;Sharma & Sons;Ahmedabad;many;-;150%;06.08.2024;1;;"line1
+line2";
+43714;Safety Gloves;Safety;Global Trade Ltd;Ahmedabad;204;468.2 EUR;0,18;TBD;Yes;0079 2345 6789;@reorder;
+05746;Copper Wire 2mm;Safety;ACME Corp;Ahmedabad;283;€ 775.24;0,18;8-Aug-24;Y;(079) 2345-6789;Ünïcödé ?;
+SKU-0372;Café Table;Equipment;Škoda Parts;Rajkot;many;731.4 EUR;;00/00/0000;false;98765-43210;"line1
+line2";
+SKU-0347;Résumé Paper A4;Office;Sharma & Sons;Surat;1e3;339.65;18;00/00/0000;TRUE;;;
+SKU-0096;LED Panel 40W;Office;ACME Corp;Ahmedabad;218;19,48;;TBD;N;0079 2345 6789;@reorder;
+SKU-0229;Steel Bolt M8;Equipment;Global Trade Ltd;Mumbai;322;-;;00/00/0000;1;0079 2345 6789;;
+33150;Steel Bolt M8;Equipment;Škoda Parts;Ahmedabad;-3;590.17;;;Y;+91 98765 43210;;
+SKU-0195;Résumé Paper A4;Lighting;Müller GmbH;Mumbai;338;181.57 EUR;5%;00/00/0000;TRUE;(079) 2345-6789;"=HYPERLINK(""http://x"")";
+27151;Résumé Paper A4;Safety;Tata Supplies;Rajkot;402;334.35;N/A;Jun 5, 2025;TRUE;+91 98765 43210;;
+40378;Café Table;Electrical;Škoda Parts;Mumbai;-3;247.15;18;31/02/2024;;0079 2345 6789;Fragile — handle with care;
+;;;;;;;;;;;;
+61071;Steel Bolt M8;Lighting;ACME Corp;Ahmedabad;-3;893,22;100%;Nov 18, 2025;Yes;;Ünïcödé ?;
+93331;LED Panel 40W;Lighting;Škoda Parts;Surat;189;260,43;0.18;2023/12/06;N;98765-43210;;
+SKU-0062;LED Panel 40W;Safety;ACME Corp;Ahmedabad;289;135.37;18;2022-09-27;no;;"note; with semicolon";
+86408;Pallet Jack;Office;ACME Corp;Rajkot;432;42.04;5%;21.05.2025;N;+91 98765 43210;;
+SKU-0265;Steel Bolt M8;Equipment;ACME Corp;Rajkot;208;215.35;0.18;TBD;1;(079) 2345-6789;"=HYPERLINK(""http://x"")";
+SKU-0204;Lubricant 5L;Electrical;Global Trade Ltd;Vadodara;many;721.93;0.18;00/00/0000;no;(079) 2345-6789;Ünïcödé ?;
+28609;Café Table;Hardware;Müller GmbH;Mumbai;45;769.94;N/A;2023-05-03;1;98765-43210;;
+64653;Café Table;Hardware;ACME Corp;Surat;  ;708,83;5%;31/02/2024;Yes;(079) 2345-6789;Ünïcödé ?;
+SKU-0297;Lubricant 5L;Safety;ACME Corp;Surat;151;467.14;150%;Sep 6, 2023;1;+91 98765 43210;@reorder;
+SKU-0034;Safety Gloves;Lighting;Müller GmbH;Surat;238;16.74;150%;May 13, 2025;no;(079) 2345-6789;"line1
+line2";
+SKU-0014;Steel Bolt M8;Safety;Global Trade Ltd;Vadodara;100;719,88;12.5%;Dec 25, 2025;1;0079 2345 6789;"=HYPERLINK(""http://x"")";
+SKU-0146;Pallet Jack;Safety;Sharma & Sons;Rajkot;207;205.32;0.18;31/02/2024;N;;"note; with semicolon";
+SKU-0246;Copper Wire 2mm;Office;Müller GmbH;Mumbai;1e3;553.96;5%;00/00/0000;no;0079 2345 6789;"line1
+line2";
+SKU-0147;Copper Wire 2mm;Equipment;ACME Corp;Surat;261;26.82;0.18;13.01.2024;N;98765-43210;Fragile — handle with care;
+71469;Résumé Paper A4;Office;Global Trade Ltd;Vadodara;484418;€ 448.59;150%;TBD;0;+91 98765 43210;"line1
+line2";
+SKU-0284;Lubricant 5L;Hardware;Sharma & Sons;Vadodara;many;722,14;150%;31/02/2024;Y;0079 2345 6789;"line1
+line2";
+25963;Pallet Jack;Electrical;Škoda Parts;Ahmedabad;20;-;0.18;00/00/0000;false;+91 98765 43210;;
+;;;;;;;;;;;;
+67263;Café Table;Office;Škoda Parts;Ahmedabad;  ;€ 735.07;;2024-10-04;TRUE;98765-43210;Fragile — handle with care;
+SKU-0247;Copper Wire 2mm;Equipment;Sharma & Sons;Vadodara;376;610,21;18;12-Feb-22;TRUE;(079) 2345-6789;@reorder;
+90572;Résumé Paper A4;Equipment;Tata Supplies;Surat;364;735.35;0.18;00/00/0000;;98765-43210;"note; with semicolon";
+98164;Lubricant 5L;Office;Sharma & Sons;Mumbai;447;177.69;100%;2024/03/12;N;not provided;"=HYPERLINK(""http://x"")";
+SKU-0038;Safety Gloves;Office;Müller GmbH;Ahmedabad;;€ 840.19;0.18;00/00/0000;0;;"=HYPERLINK(""http://x"")";
+SKU-0143;Safety Gloves;Safety;ACME Corp;Surat;12 pcs;787.9;18;2022/03/06;Yes;98765-43210;@reorder;
+SKU-0148;Pallet Jack;Electrical;Müller GmbH;Vadodara;339;€ 80.06;N/A;TBD;Y;98765-43210;Fragile — handle with care;
+;;;;;;;;;;;;
+SKU-0133;Copper Wire 2mm;Safety;Škoda Parts;Mumbai;52;135.52;0,18;TBD;TRUE;0079 2345 6789;"=HYPERLINK(""http://x"")";
+SKU-0165;Copper Wire 2mm;Office;Global Trade Ltd;Mumbai;;92.78;N/A;TBD;false;not provided;;
+91415;Copper Wire 2mm;Office;Global Trade Ltd;Ahmedabad;174;29.67;0.18;2022/12/03;1;(079) 2345-6789;Fragile — handle with care;
+SKU-0190;Safety Gloves;Electrical;Global Trade Ltd;Ahmedabad;474;-;5%;00/00/0000;0;not provided;"line1
+line2";
+34773;Lubricant 5L;Safety;Global Trade Ltd;Rajkot;442;67.92;;2022/04/09;0;;"=HYPERLINK(""http://x"")";
+SKU-0285;Steel Bolt M8;Hardware;Tata Supplies;Mumbai;434;310.08;0,18;Jan 11, 2022;false;98765-43210;"=HYPERLINK(""http://x"")";
+SKU-0302;LED Panel 40W;Lighting;Tata Supplies;Rajkot;98;€ 52.77;12.5%;18.09.2023;N;+91 98765 43210;"line1
+line2";
+SKU-0028;Café Table;Electrical;Müller GmbH;Vadodara;228;196,86;;16-Feb-25;N;(079) 2345-6789;"note; with semicolon";
+SKU-0113;Safety Gloves;Electrical;Müller GmbH;Vadodara;  ;847,11;150%;00/00/0000;0;+91 98765 43210;;
+SKU-0213;Résumé Paper A4;Safety;Sharma & Sons;Mumbai;87;99.54 EUR;12.5%;Nov 19, 2022;;0079 2345 6789;Ünïcödé ?;
+SKU-0187;LED Panel 40W;Office;Global Trade Ltd;Mumbai;219;451,16;;Feb 12, 2025;no;98765-43210;"line1
+line2";
+SKU-0031;Résumé Paper A4;Safety;Sharma & Sons;Ahmedabad;21;-;18;TBD;;not provided;;
+02898;LED Panel 40W;Lighting;Sharma & Sons;Surat;-3;5,96;N/A;31/02/2024;Y;0079 2345 6789;;
+SKU-0205;Pallet Jack;Office;Škoda Parts;Surat;46;140,20;0.18;TBD;false;0079 2345 6789;"note; with semicolon";
+24227;Steel Bolt M8;Office;Müller GmbH;Ahmedabad;223;721,78;18;2024/06/06;TRUE;(079) 2345-6789;@reorder;
+SKU-0344;Copper Wire 2mm;Hardware;Sharma & Sons;Mumbai;281;30.84;150%;26.05.2023;Yes;+91 98765 43210;"note; with semicolon";
+77492;LED Panel 40W;Electrical;Škoda Parts;Surat;104;515.28;100%;2022-10-24;1;0079 2345 6789;"line1
+line2";
+SKU-0089;Café Table;Equipment;ACME Corp;Surat;-3;668.16;0.18;25.09.2025;false;0079 2345 6789;;
+19487;Pallet Jack;Electrical;Müller GmbH;Mumbai;185;15,98;100%;15.10.2024;1;98765-43210;"note; with semicolon";
+43287;Résumé Paper A4;Equipment;Sharma & Sons;Rajkot;496;283,16;18;TBD;false;;"line1
+line2";
+72620;Lubricant 5L;Safety;Global Trade Ltd;Ahmedabad;163;346.53;0,18;Feb 26, 2022;TRUE;98765-43210;;
+SKU-0198;Lubricant 5L;Office;Škoda Parts;Surat;405;895,44;12.5%;09/01/2025;N;0079 2345 6789;Fragile — handle with care;
+71469;Résumé Paper A4;Office;Global Trade Ltd;Vadodara;484418;€ 448.59;150%;TBD;0;+91 98765 43210;"line1
+line2";
+SKU-0335;Café Table;Electrical;Global Trade Ltd;Ahmedabad;many;562,49;5%;May 4, 2023;N;;"note; with semicolon";
+51914;Pallet Jack;Electrical;Sharma & Sons;Ahmedabad;  ;130.29;0,18;31/02/2024;Y;98765-43210;"note; with semicolon";
+SKU-0395;LED Panel 40W;Equipment;Global Trade Ltd;Surat;390;686,51;0,18;00/00/0000;no;not provided;"=HYPERLINK(""http://x"")";
+36065;Steel Bolt M8;Lighting;Müller GmbH;Ahmedabad;301;€ 751.37;0.18;00/00/0000;false;;;
+36535;Pallet Jack;Office;Müller GmbH;Rajkot;61;€ 890.84;0,18;24-Jan-22;no;0079 2345 6789;"note; with semicolon";
+SKU-0342;Lubricant 5L;Equipment;Škoda Parts;Rajkot;112;487,88;0.18;00/00/0000;Y;0079 2345 6789;"note; with semicolon";
+70498;Lubricant 5L;Hardware;Škoda Parts;Rajkot;-3;265.44;;Apr 18, 2023;;0079 2345 6789;;
+SKU-0374;Lubricant 5L;Safety;Müller GmbH;Rajkot;171;732,41;100%;2022-02-15;1;not provided;;
+SKU-0078;Copper Wire 2mm;Office;Global Trade Ltd;Vadodara;104;429,93;18;;false;98765-43210;"=HYPERLINK(""http://x"")";
+SKU-0321;Safety Gloves;Safety;Tata Supplies;Rajkot;-3;833,23;;TBD;1;98765-43210;@reorder;
+11534;Pallet Jack;Safety;ACME Corp;Surat;-3;€ 625.82;100%;2023-09-05;false;;"note; with semicolon";
+32237;Safety Gloves;Office;Müller GmbH;Surat;96;891,87;100%;2023-08-12;no;+91 98765 43210;Fragile — handle with care;
+SKU-0280;Copper Wire 2mm;Office;Müller GmbH;Mumbai;366;348.94;0,18;TBD;false;not provided;@reorder;
+SKU-0238;Pallet Jack;Equipment;ACME Corp;Rajkot;426368;€ 509.27;;12/06/2024;1;+91 98765 43210;Ünïcödé ?;
+SKU-0386;Résumé Paper A4;Office;ACME Corp;Surat;203;NULL;N/A;14-May-22;no;(079) 2345-6789;@reorder;
+;;;;;;;;;;;;
+SKU-0350;Pallet Jack;Lighting;Tata Supplies;Mumbai;430;497.72 EUR;0.18;22.05.2023;0;;Ünïcödé ?;
+44306;Café Table;Hardware;Tata Supplies;Surat;88;874,60;0,18;10/05/2025;0;;"line1
+line2";
+31920;Copper Wire 2mm;Electrical;Sharma & Sons;Rajkot;-3;€ 151.92;150%;Jan 4, 2022;0;not provided;Fragile — handle with care;
+SKU-0299;Steel Bolt M8;Office;Tata Supplies;Vadodara;152;€ 610.39;;09/09/2023;1;0079 2345 6789;Fragile — handle with care;
+SKU-0260;Copper Wire 2mm;Equipment;Tata Supplies;Surat;240;670.06 EUR;N/A;00/00/0000;;(079) 2345-6789;"note; with semicolon";
+SKU-0129;Pallet Jack;Safety;Sharma & Sons;Vadodara;477;247.43;150%;31/02/2024;1;(079) 2345-6789;"note; with semicolon";
+17907;Copper Wire 2mm;Office;Tata Supplies;Mumbai;  ;234,99;18;9-Apr-25;Y;not provided;"=HYPERLINK(""http://x"")";
+34736;Pallet Jack;Hardware;Sharma & Sons;Surat;  ;549.48;100%;31/02/2024;Yes;(079) 2345-6789;;
+SKU-0293;Safety Gloves;Equipment;Škoda Parts;Rajkot;-3;504,41;100%;31/02/2024;TRUE;(079) 2345-6789;@reorder;
+SKU-0326;Copper Wire 2mm;Safety;Sharma & Sons;Surat;278;228,44;100%;31/02/2024;Y;+91 98765 43210;@reorder;
+SKU-0032;Pallet Jack;Hardware;ACME Corp;Rajkot;-3;656,67;100%;TBD;Yes;not provided;"line1
+line2";
+SKU-0059;Safety Gloves;Safety;Global Trade Ltd;Surat;  ;184,10;0.18;27.02.2025;false;;Ünïcödé ?;
+SKU-0081;LED Panel 40W;Lighting;Tata Supplies;Rajkot;  ;448,99;12.5%;18.12.2025;false;+91 98765 43210;@reorder;
+34773;Lubricant 5L;Safety;Global Trade Ltd;Rajkot;442;67.92;;2022/04/09;0;;"=HYPERLINK(""http://x"")";
+SKU-0085;Pallet Jack;Office;ACME Corp;Surat;52;247,16;12.5%;TBD;1;;"line1
+line2";
+32772;Résumé Paper A4;Lighting;Škoda Parts;Surat;-3;34.41;150%;01/06/2023;TRUE;+91 98765 43210;Fragile — handle with care;
+SKU-0005;Copper Wire 2mm;Equipment;Sharma & Sons;Vadodara;477;€ 306.77;100%;27.02.2025;no;+91 98765 43210;"line1
+line2";
+83651;LED Panel 40W;Office;ACME Corp;Surat;many;730.6;5%;31/02/2024;;0079 2345 6789;@reorder;
+SKU-0111;Pallet Jack;Lighting;Škoda Parts;Ahmedabad;1e3;851.9;0.18;Jan 11, 2024;no;+91 98765 43210;;
+SKU-0094;Copper Wire 2mm;Office;Sharma & Sons;Vadodara;273;?;12.5%;00/00/0000;1;(079) 2345-6789;Ünïcödé ?;
+SKU-0216;Copper Wire 2mm;Electrical;Global Trade Ltd;Ahmedabad;-3;761.31;12.5%;TBD;0;(079) 2345-6789;"=HYPERLINK(""http://x"")";
+SKU-0186;Steel Bolt M8;Hardware;Tata Supplies;Mumbai;299;536.07 EUR;12.5%;11.01.2022;0;(079) 2345-6789;"note; with semicolon";
+SKU-0319;Résumé Paper A4;Hardware;Global Trade Ltd;Vadodara;13;€ 463.45;5%;31/02/2024;1;(079) 2345-6789;"=HYPERLINK(""http://x"")";
+51998;Copper Wire 2mm;Equipment;Sharma & Sons;Vadodara;379169;663,79;;02/02/2024;1;;Ünïcödé ?;
+SKU-0122;Copper Wire 2mm;Hardware;ACME Corp;Rajkot;439;735.07;;2025-10-25;0;;"note; with semicolon";
+SKU-0388;Résumé Paper A4;Electrical;Müller GmbH;Surat;-3;792.33;;00/00/0000;no;;"line1
+line2";
+67799;Résumé Paper A4;Safety;Škoda Parts;Vadodara;-3;none;5%;08.09.2022;;;"line1
+line2";
+SKU-0142;Lubricant 5L;Hardware;Sharma & Sons;Rajkot;112;225,15;0.18;TBD;TRUE;;;
+SKU-0215;LED Panel 40W;Office;Sharma & Sons;Rajkot;402;€ 136.96;0.18;2023/04/08;Yes;;;
+45968;Steel Bolt M8;Lighting;Škoda Parts;Surat;;586.59;18;31/02/2024;0;0079 2345 6789;@reorder;
+SKU-0288;Safety Gloves;Office;ACME Corp;Vadodara;;225,16;;2022/01/08;no;;"line1
+line2";
+71923;Safety Gloves;Electrical;Global Trade Ltd;Rajkot;368;352,96;N/A;Nov 10, 2023;no;(079) 2345-6789;@reorder;
+15964;Lubricant 5L;Equipment;Tata Supplies;Surat;68;738.59;18;2023-05-08;no;(079) 2345-6789;Ünïcödé ?;
+97501;Safety Gloves;Electrical;Global Trade Ltd;Vadodara;7;€ 173.55;18;00/00/0000;;0079 2345 6789;;
+96042;Résumé Paper A4;Electrical;Global Trade Ltd;Mumbai;12 pcs;881.56;0.18;00/00/0000;Y;;Fragile — handle with care;
+62944;Résumé Paper A4;Safety;Sharma & Sons;Mumbai;222;251,62;5%;May 28, 2025;1;not provided;"=HYPERLINK(""http://x"")";
+SKU-0252;Safety Gloves;Safety;Sharma & Sons;Ahmedabad;-3;583,37;5%;23.07.2024;0;not provided;"line1
+line2";
+SKU-0296;Safety Gloves;Electrical;Škoda Parts;Vadodara;;€ 556.77;0.18;04/10/2023;false;+91 98765 43210;"note; with semicolon";
+52608;Copper Wire 2mm;Hardware;ACME Corp;Ahmedabad;many;592,09;150%;2022/05/16;no;(079) 2345-6789;@reorder;
+SKU-0370;Steel Bolt M8;Hardware;Tata Supplies;Surat;238;228,44;12.5%;31/02/2024;no;(079) 2345-6789;@reorder;
+01504;Safety Gloves;Hardware;Global Trade Ltd;Vadodara;425;225,77;0.18;TBD;N;;Ünïcödé ?;
+78537;Lubricant 5L;Equipment;Škoda Parts;Rajkot;236;719,88;0,18;TBD;Yes;+91 98765 43210;;
+93260;Lubricant 5L;Hardware;Škoda Parts;Ahmedabad;224;436.98;18;02.08.2025;TRUE;98765-43210;@reorder;
+SKU-0176;Copper Wire 2mm;Electrical;Tata Supplies;Ahmedabad;204;-;12.5%;01/04/2022;TRUE;not provided;"line1
+line2";
+SKU-0214;Copper Wire 2mm;Hardware;Tata Supplies;Mumbai;  ;695,80;0,18;TBD;Yes;98765-43210;@reorder;
+32227;Lubricant 5L;Equipment;Global Trade Ltd;Vadodara;4;?;150%;25-Mar-25;no;not provided;"note; with semicolon";
+SKU-0002;Steel Bolt M8;Equipment;Sharma & Sons;Surat;289;45,58;150%;09/02/2023;TRUE;not provided;Ünïcödé ?;
+52694;Steel Bolt M8;Electrical;Global Trade Ltd;Rajkot;213;€ 598.65;N/A;TBD;Yes;+91 98765 43210;@reorder;
+19534;Pallet Jack;Hardware;Müller GmbH;Rajkot;12 pcs;106.25;150%;Jun 15, 2022;;+91 98765 43210;"note; with semicolon";
+10875;Lubricant 5L;Hardware;Tata Supplies;Surat;-3;685.19 EUR;0,18;01.12.2025;no;;"=HYPERLINK(""http://x"")";
+49248;Café Table;Equipment;Tata Supplies;Vadodara;438;298,42;18;2023-10-24;TRUE;98765-43210;"line1
+line2";
+SKU-0319;Résumé Paper A4;Hardware;Global Trade Ltd;Vadodara;13;€ 463.45;5%;31/02/2024;1;(079) 2345-6789;"=HYPERLINK(""http://x"")";
+82518;LED Panel 40W;Equipment;Tata Supplies;Vadodara;  ;35,25;12.5%;02/08/2022;Y;+91 98765 43210;Fragile — handle with care;
+SKU-0076;Pallet Jack;Electrical;Škoda Parts;Mumbai;439;527.21 EUR;0.18;01.01.2023;Y;98765-43210;Fragile — handle with care;
+SKU-0124;LED Panel 40W;Hardware;ACME Corp;Ahmedabad;359;418.9 EUR;0,18;;N;(079) 2345-6789;Fragile — handle with care;
+SKU-0108;Pallet Jack;Equipment;Müller GmbH;Surat;;419,33;0,18;00/00/0000;false;+91 98765 43210;Fragile — handle with care;
+SKU-0363;Café Table;Hardware;Sharma & Sons;Ahmedabad;496;n.a.;5%;14.02.2022;N;not provided;Ünïcödé ?;
+48031;Steel Bolt M8;Lighting;Sharma & Sons;Ahmedabad;12 pcs;€ 308.25;N/A;2024/04/11;Y;;;
+SKU-0070;Pallet Jack;Hardware;Sharma & Sons;Vadodara;23;€ 481.17;0,18;31/02/2024;Y;+91 98765 43210;Ünïcödé ?;
+SKU-0300;Steel Bolt M8;Equipment;ACME Corp;Surat;146;€ 397.29;150%;00/00/0000;0;+91 98765 43210;"=HYPERLINK(""http://x"")";
+42531;Lubricant 5L;Safety;ACME Corp;Mumbai;79;430.75;0.18;00/00/0000;Yes;98765-43210;Ünïcödé ?;
+21986;LED Panel 40W;Safety;Škoda Parts;Surat;12 pcs;839.97 EUR;12.5%;06/02/2025;false;;;
+56326;LED Panel 40W;Hardware;Sharma & Sons;Vadodara;-3;248.94;100%;Sep 16, 2024;;;"note; with semicolon";
+SKU-0289;Pallet Jack;Safety;Škoda Parts;Vadodara;26;575.13;100%;24-Jun-24;no;not provided;"note; with semicolon";
+53784;Lubricant 5L;Lighting;Global Trade Ltd;Vadodara;463;464.98;0.18;TBD;TRUE;not provided;Fragile — handle with care;
+SKU-0015;Lubricant 5L;Safety;Global Trade Ltd;Ahmedabad;;652,59;0.18;TBD;0;0079 2345 6789;"=HYPERLINK(""http://x"")";
+SKU-0387;Lubricant 5L;Lighting;Škoda Parts;Mumbai;166;829.53;100%;;TRUE;;;
+SKU-0129;Pallet Jack;Safety;Sharma & Sons;Vadodara;477;247.43;150%;31/02/2024;1;(079) 2345-6789;"note; with semicolon";
+SKU-0304;Safety Gloves;Lighting;Müller GmbH;Surat;1e3;€ 293.44;100%;03/03/2023;Y;98765-43210;"line1
+line2";
+SKU-0224;Steel Bolt M8;Lighting;Škoda Parts;Rajkot;262;7.36;0,18;31/02/2024;1;(079) 2345-6789;"line1
+line2";
+SKU-0249;Steel Bolt M8;Office;Global Trade Ltd;Rajkot;407;€ 765.13;5%;TBD;Y;98765-43210;Ünïcödé ?;
+68663;Pallet Jack;Office;Müller GmbH;Ahmedabad;354;562.2;;2022/08/16;Y;;"=HYPERLINK(""http://x"")";
+SKU-0009;Résumé Paper A4;Safety;Škoda Parts;Surat;many;-;5%;TBD;false;not provided;;
+56368;Lubricant 5L;Safety;Škoda Parts;Surat;12 pcs;€ 683.92;12.5%;04/03/2023;N;;"line1
+line2";
+SKU-0310;Pallet Jack;Safety;Global Trade Ltd;Vadodara;269;361.73;100%;11/05/2022;Yes;not provided;Ünïcödé ?;
+74924;Café Table;Equipment;Global Trade Ltd;Mumbai;1e3;81.92;18;;N;+91 98765 43210;"=HYPERLINK(""http://x"")";
+48587;Steel Bolt M8;Equipment;ACME Corp;Surat;-3;48,12;5%;22.09.2025;no;(079) 2345-6789;@reorder;
+SKU-0043;Copper Wire 2mm;Office;Global Trade Ltd;Surat;55;77.42;5%;2023-04-19;TRUE;(079) 2345-6789;"line1
+line2";
+33284;Pallet Jack;Equipment;Sharma & Sons;Rajkot;329;12,21;0,18;TBD;;98765-43210;@reorder;
+SKU-0325;Pallet Jack;Lighting;ACME Corp;Rajkot;51;NULL;5%;;no;+91 98765 43210;;
+01246;Lubricant 5L;Office;Škoda Parts;Vadodara;196;272,06;18;2024/04/24;false;0079 2345 6789;@reorder;
+SKU-0297;Lubricant 5L;Safety;ACME Corp;Surat;151;467.14;150%;Sep 6, 2023;1;+91 98765 43210;@reorder;
+16599;Lubricant 5L;Hardware;Müller GmbH;Ahmedabad;  ;136,85;12.5%;31/02/2024;Y;98765-43210;Ünïcödé ?;
+SKU-0105;LED Panel 40W;Office;Škoda Parts;Surat;;347.78;0,18;2024-05-09;false;not provided;"line1
+line2";
+37408;Copper Wire 2mm;Lighting;Sharma & Sons;Rajkot;1e3;€ 867.13;150%;TBD;;98765-43210;"=HYPERLINK(""http://x"")";
+84174;Safety Gloves;Electrical;ACME Corp;Surat;;€ 421.82;150%;Aug 12, 2023;1;0079 2345 6789;"=HYPERLINK(""http://x"")";
+94901;Café Table;Office;Tata Supplies;Mumbai;328;356.06;N/A;TBD;0;;;
+70452;Résumé Paper A4;Equipment;Müller GmbH;Ahmedabad;121;659,03;18;00/00/0000;false;+91 98765 43210;Fragile — handle with care;
+03798;Steel Bolt M8;Lighting;Škoda Parts;Vadodara;116;-;;2025/12/12;no;(079) 2345-6789;@reorder;
+SKU-0356;Pallet Jack;Electrical;Škoda Parts;Surat;;190,78;18;00/00/0000;no;0079 2345 6789;"=HYPERLINK(""http://x"")";
+84005;Café Table;Office;ACME Corp;Rajkot;-3;796,33;18;27.11.2024;Y;0079 2345 6789;"line1
+line2";
+SKU-0390;Safety Gloves;Safety;Müller GmbH;Surat;  ;896.04;12.5%;8-Nov-22;1;98765-43210;"note; with semicolon";
+SKU-0138;Résumé Paper A4;Office;Tata Supplies;Mumbai;12 pcs;261.64;150%;2023-07-06;no;98765-43210;"note; with semicolon";
+SKU-0241;Lubricant 5L;Hardware;Tata Supplies;Mumbai;  ;481,23;;TBD;N;+91 98765 43210;Fragile — handle with care;
+SKU-0236;Café Table;Office;ACME Corp;Ahmedabad;451;577.96 EUR;N/A;31/02/2024;false;not provided;Fragile — handle with care;
+SKU-0196;Copper Wire 2mm;Electrical;Tata Supplies;Surat;427;€ 862.57;;;TRUE;;@reorder;
+SKU-0398;Lubricant 5L;Office;Sharma & Sons;Rajkot;132;257.27;0.18;2023/05/13;TRUE;98765-43210;"line1
+line2";
+44603;Lubricant 5L;Equipment;Müller GmbH;Rajkot;46;386.09;0.18;00/00/0000;;(079) 2345-6789;Ünïcödé ?;
+SKU-0023;Résumé Paper A4;Office;ACME Corp;Surat;;135.28;100%;2024-02-09;1;+91 98765 43210;"=HYPERLINK(""http://x"")";
+76836;LED Panel 40W;Electrical;Global Trade Ltd;Surat;408;723.81;18;31/02/2024;Yes;(079) 2345-6789;"note; with semicolon";
+SKU-0054;Copper Wire 2mm;Lighting;ACME Corp;Vadodara;213;€ 510.63;0,18;04/04/2023;Y;98765-43210;"note; with semicolon";
+05191;Copper Wire 2mm;Safety;Global Trade Ltd;Rajkot;1e3;374.38;12.5%;06/03/2024;no;98765-43210;;
+89804;Résumé Paper A4;Electrical;ACME Corp;Mumbai;22;none;N/A;09/06/2025;;;;
+01235;LED Panel 40W;Lighting;Tata Supplies;Mumbai;350;662,68;0.18;13.11.2025;1;98765-43210;;
+SKU-0162;Copper Wire 2mm;Hardware;Global Trade Ltd;Vadodara;12 pcs;€ 548.62;N/A;05/06/2024;;0079 2345 6789;;
+SKU-0328;Résumé Paper A4;Electrical;Global Trade Ltd;Rajkot;137954;€ 593.47;12.5%;Jul 3, 2022;Yes;98765-43210;;
+29772;Steel Bolt M8;Office;Škoda Parts;Mumbai;316;680,27;5%;27-Mar-23;false;;@reorder;
+SKU-0098;Pallet Jack;Equipment;ACME Corp;Rajkot;423;589.45;;23-Jun-23;no;+91 98765 43210;@reorder;
+SKU-0053;Café Table;Electrical;Škoda Parts;Ahmedabad;12 pcs;€ 889.05;12.5%;TBD;Y;(079) 2345-6789;Fragile — handle with care;
+SKU-0375;Résumé Paper A4;Electrical;ACME Corp;Vadodara;211;€ 567.73;5%;31/02/2024;N;98765-43210;;
+SKU-0172;LED Panel 40W;Office;Müller GmbH;Mumbai;134;812,47;18;19.11.2025;N;(079) 2345-6789;"line1
+line2";
+01141;Pallet Jack;Office;Tata Supplies;Mumbai;417;213.29;100%;00/00/0000;Y;(079) 2345-6789;@reorder;
+SKU-0307;Café Table;Safety;Tata Supplies;Vadodara;1e3;894,17;5%;00/00/0000;false;(079) 2345-6789;"note; with semicolon";
+SKU-0115;Steel Bolt M8;Safety;Global Trade Ltd;Rajkot;;719,17;18;2022/10/28;0;+91 98765 43210;@reorder;
+SKU-0235;Pallet Jack;Safety;ACME Corp;Ahmedabad;;€ 859.11;12.5%;00/00/0000;N;0079 2345 6789;Ünïcödé ?;
+SKU-0352;Lubricant 5L;Hardware;Müller GmbH;Rajkot;-3;400.43;12.5%;28-Apr-25;N;not provided;Fragile — handle with care;
+SKU-0385;LED Panel 40W;Electrical;Müller GmbH;Ahmedabad;54;;0.18;2023-08-22;0;+91 98765 43210;;
+SKU-0257;Café Table;Lighting;Sharma & Sons;Rajkot;151;125.39;0,18;00/00/0000;N;(079) 2345-6789;"=HYPERLINK(""http://x"")";
+06432;Café Table;Equipment;Tata Supplies;Rajkot;;-;18;2025/01/07;;98765-43210;"line1
+line2";
+SKU-0102;LED Panel 40W;Safety;Škoda Parts;Mumbai;12 pcs;-;18;;no;+91 98765 43210;Fragile — handle with care;
+94286;Safety Gloves;Safety;Global Trade Ltd;Rajkot;445;€ 830.60;0.18;00/00/0000;0;0079 2345 6789;"=HYPERLINK(""http://x"")";
+12414;LED Panel 40W;Safety;Tata Supplies;Surat;  ;686.34;;;false;(079) 2345-6789;"note; with semicolon";
+31297;Café Table;Hardware;Sharma & Sons;Rajkot;453;95.26;;2025/11/11;no;;Fragile — handle with care;
+98261;Café Table;Office;ACME Corp;Surat;245;746,14;5%;12/09/2023;Yes;not provided;"=HYPERLINK(""http://x"")";
+SKU-0176;Copper Wire 2mm;Electrical;Tata Supplies;Ahmedabad;204;-;12.5%;01/04/2022;TRUE;not provided;"line1
+line2";
+SKU-0107;Pallet Jack;Electrical;Sharma & Sons;Rajkot;  ;247.19;150%;18.06.2025;0;;Fragile — handle with care;
+27441;Lubricant 5L;Safety;Global Trade Ltd;Surat;;184,27;0.18;2025-11-04;0;(079) 2345-6789;;
+47533;Safety Gloves;Lighting;Sharma & Sons;Surat;36;301.65;;Sep 12, 2025;Y;(079) 2345-6789;Fragile — handle with care;
+93058;Copper Wire 2mm;Electrical;Tata Supplies;Mumbai;9;147.37;12.5%;2025-01-03;no;not provided;"note; with semicolon";
+SKU-0041;Safety Gloves;Safety;ACME Corp;Vadodara;445;677.15;;00/00/0000;no;98765-43210;Fragile — handle with care;
+SKU-0240;Pallet Jack;Equipment;Škoda Parts;Surat;12 pcs;145.7;N/A;01.03.2023;;;;
+63365;Café Table;Electrical;Müller GmbH;Rajkot;198;414.01;5%;05/07/2023;TRUE;+91 98765 43210;"note; with semicolon";
+92400;Résumé Paper A4;Office;Tata Supplies;Surat;51;778.04 EUR;5%;2022/12/16;1;;"note; with semicolon";
+SKU-0112;Lubricant 5L;Hardware;Sharma & Sons;Surat;-3;830.02;12.5%;Jun 19, 2024;;;Fragile — handle with care;
+SKU-0155;Résumé Paper A4;Electrical;Müller GmbH;Vadodara;1e3;12.12;5%;May 10, 2022;TRUE;;;
+98573;Résumé Paper A4;Office;Tata Supplies;Ahmedabad;;771.51;12.5%;16-Mar-23;N;+91 98765 43210;Ünïcödé ?;
+SKU-0192;Pallet Jack;Lighting;Škoda Parts;Vadodara;-3;470.32;18;00/00/0000;N;not provided;Fragile — handle with care;
+SKU-0383;Café Table;Electrical;Tata Supplies;Vadodara;12 pcs;€ 635.86;0.18;26-May-25;Y;(079) 2345-6789;"note; with semicolon";
+SKU-0318;Steel Bolt M8;Equipment;Tata Supplies;Rajkot;many;815,64;18;00/00/0000;1;;"line1
+line2";
+62528;Café Table;Equipment;Global Trade Ltd;Surat;343865;605,66;18;7-Aug-23;N;98765-43210;;
+58503;Safety Gloves;Lighting;ACME Corp;Surat;many;€ 28.22;N/A;TBD;TRUE;(079) 2345-6789;"line1
+line2";
+SKU-0323;Lubricant 5L;Electrical;Global Trade Ltd;Rajkot;;€ 155.69;12.5%;2025-03-19;Y;0079 2345 6789;Ünïcödé ?;
+09854;Résumé Paper A4;Safety;Global Trade Ltd;Vadodara;129;522,58;0,18;;Y;(079) 2345-6789;Ünïcödé ?;
+27151;Résumé Paper A4;Safety;Tata Supplies;Rajkot;402;334.35;N/A;Jun 5, 2025;TRUE;+91 98765 43210;;
+SKU-0262;Steel Bolt M8;Office;Škoda Parts;Ahmedabad;432345;483,88;100%;07/06/2023;Yes;98765-43210;"line1
+line2";
+84350;Steel Bolt M8;Office;Müller GmbH;Ahmedabad;358;60.12 EUR;;22.09.2023;no;(079) 2345-6789;Fragile — handle with care;
+SKU-0248;Steel Bolt M8;Hardware;Müller GmbH;Ahmedabad;1e3;?;18;31/02/2024;N;0079 2345 6789;Ünïcödé ?;
+16600;Steel Bolt M8;Safety;ACME Corp;Ahmedabad;;-;12.5%;Nov 26, 2023;N;;Fragile — handle with care;
+SKU-0178;Steel Bolt M8;Lighting;Sharma & Sons;Vadodara;204;-;;04/03/2023;;+91 98765 43210;"=HYPERLINK(""http://x"")";
+SKU-0140;LED Panel 40W;Equipment;Tata Supplies;Surat;12 pcs;541,97;150%;04.01.2022;0;;"note; with semicolon";
+SKU-0044;Copper Wire 2mm;Hardware;Müller GmbH;Vadodara;-3;472.47 EUR;N/A;31/02/2024;;98765-43210;@reorder;
+72620;Lubricant 5L;Safety;Global Trade Ltd;Ahmedabad;163;346.53;0,18;Feb 26, 2022;TRUE;98765-43210;;
+SKU-0175;Résumé Paper A4;Office;Müller GmbH;Surat;180;288,01;0,18;21-Mar-22;Yes;(079) 2345-6789;;
+24464;Résumé Paper A4;Hardware;ACME Corp;Surat;  ;€ 527.52;0,18;00/00/0000;N;98765-43210;;
+SKU-0024;Copper Wire 2mm;Equipment;Tata Supplies;Ahmedabad;480;238,74;5%;14-Sep-24;Yes;not provided;"line1
+line2";
+SKU-0097;Café Table;Lighting;Škoda Parts;Mumbai;320;499.16;0,18;14-Jun-25;TRUE;98765-43210;"=HYPERLINK(""http://x"")";
+;;;;;;;;;;;;
+SKU-0265;Steel Bolt M8;Equipment;ACME Corp;Rajkot;208;215.35;0.18;TBD;1;(079) 2345-6789;"=HYPERLINK(""http://x"")";
+SKU-0217;Lubricant 5L;Office;Sharma & Sons;Rajkot;many;392.35;150%;00/00/0000;no;+91 98765 43210;Ünïcödé ?;
+69020;Pallet Jack;Electrical;ACME Corp;Surat;259;€ 37.45;0,18;09/04/2023;Y;(079) 2345-6789;"note; with semicolon";
+48505;Pallet Jack;Equipment;Tata Supplies;Rajkot;371;143,19;12.5%;31/02/2024;;;@reorder;
+SKU-0062;LED Panel 40W;Safety;ACME Corp;Ahmedabad;289;135.37;18;2022-09-27;no;;"note; with semicolon";
+SKU-0099;Steel Bolt M8;Safety;ACME Corp;Ahmedabad;-3;6,58;100%;31/02/2024;Y;0079 2345 6789;"line1
+line2";
+SKU-0030;LED Panel 40W;Hardware;Global Trade Ltd;Mumbai;253;564.97;150%;00/00/0000;N;+91 98765 43210;;
+80585;Pallet Jack;Lighting;Müller GmbH;Mumbai;112;€ 859.74;12.5%;2024/11/18;no;98765-43210;Fragile — handle with care;
+97806;Lubricant 5L;Equipment;ACME Corp;Mumbai;161;€ 492.02;N/A;;false;+91 98765 43210;"line1
+line2";
+;;;;;;;;;;;;
+SKU-0179;LED Panel 40W;Office;Sharma & Sons;Mumbai;416;298.42;0,18;25-Jan-25;0;not provided;"=HYPERLINK(""http://x"")";
+51238;Safety Gloves;Lighting;ACME Corp;Ahmedabad;many;83.49;0,18;31/02/2024;1;98765-43210;;
+SKU-0348;Café Table;Safety;Sharma & Sons;Vadodara;114;451,64;;2025/04/06;1;(079) 2345-6789;"note; with semicolon";
+11598;Safety Gloves;Electrical;Škoda Parts;Vadodara;402;€ 66.94;0,18;16-Dec-25;no;98765-43210;Fragile — handle with care;
+42968;Résumé Paper A4;Electrical;ACME Corp;Ahmedabad;206;691,67;;31/02/2024;TRUE;not provided;"line1
+line2";
+SKU-0121;Lubricant 5L;Hardware;Müller GmbH;Surat;177;819.28;0,18;2023/03/19;false;not provided;"note; with semicolon";
+SKU-0268;Copper Wire 2mm;Safety;Tata Supplies;Surat;  ;592.65 EUR;;31/02/2024;1;(079) 2345-6789;Ünïcödé ?;
+42597;Safety Gloves;Lighting;Müller GmbH;Rajkot;336;44,63;5%;00/00/0000;no;+91 98765 43210;"line1
+line2";
+SKU-0101;LED Panel 40W;Safety;Müller GmbH;Vadodara;-3;19.33 EUR;5%;2025-10-17;1;;;
+62061;Copper Wire 2mm;Equipment;Müller GmbH;Vadodara;;614.42;100%;Sep 2, 2022;Yes;+91 98765 43210;"note; with semicolon";
+04175;Copper Wire 2mm;Equipment;Müller GmbH;Mumbai;146;?;0.18;TBD;1;(079) 2345-6789;Fragile — handle with care;
+SKU-0126;Steel Bolt M8;Lighting;Sharma & Sons;Rajkot;467;862.12;18;2025-11-21;;(079) 2345-6789;;
+Item Code;Item;Category;Supplier;Warehouse;Stock On Hand;Unit Cost;Tax Rate;Last Restock;Active?;Contact Phone;Remarks;
+80868;Steel Bolt M8;Lighting;Global Trade Ltd;Vadodara;1e3;€ 831.88;12.5%;TBD;1;98765-43210;@reorder;
+08550;LED Panel 40W;Office;ACME Corp;Rajkot;331;227.97;12.5%;2022-10-28;N;+91 98765 43210;"=HYPERLINK(""http://x"")";
+83474;Résumé Paper A4;Electrical;ACME Corp;Mumbai;many;30.9;12.5%;TBD;no;0079 2345 6789;"=HYPERLINK(""http://x"")";
+SKU-0132;LED Panel 40W;Safety;ACME Corp;Vadodara;-3;127,15;0,18;TBD;Y;;Ünïcödé ?;
+02425;Résumé Paper A4;Office;Škoda Parts;Mumbai;1e3;755.91;N/A;;1;not provided;Ünïcödé ?;
+SKU-0069;Café Table;Office;Müller GmbH;Ahmedabad;  ;€ 200.25;N/A;2025-09-12;N;not provided;"line1
+line2";
+SKU-0168;Lubricant 5L;Hardware;Müller GmbH;Surat;355;100.27;0.18;;TRUE;not provided;"line1
+line2";
+SKU-0255;Copper Wire 2mm;Safety;ACME Corp;Vadodara;353;749,23;18;2022/04/26;TRUE;not provided;;
+SKU-0243;Lubricant 5L;Office;Škoda Parts;Mumbai;many;128.46;N/A;Dec 8, 2022;N;0079 2345 6789;"line1
+line2";
+01504;Safety Gloves;Hardware;Global Trade Ltd;Vadodara;425;225,77;0.18;TBD;N;;Ünïcödé ?;
+SKU-0287;Café Table;Office;Müller GmbH;Vadodara;429;806,40;;00/00/0000;;;"=HYPERLINK(""http://x"")";
