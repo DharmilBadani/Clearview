@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import csv
 import re
+import warnings
 from pathlib import Path
 from typing import Callable
 
@@ -21,7 +22,10 @@ TYPE_CHOICES = (
     "TEXT",
 )
 
-_NULL_VALUES = {"", "null", "none", "nan", "n/a", "n.a."}
+_NULL_VALUES = {
+    "", "null", "none", "nan", "n/a", "n.a.", "na", "?", "--", "-",
+    "#n/a", "#div/0!", "#value!", "#ref!",
+}
 _MISSING_CONVERSION_MARKERS = {"", "?", "tbd", "unknown", "00/00/0000", "na", "n/a", "n.a.", "none", "null", "nan", "-"}
 _NUMBER_WORDS = {
     "zero": 0, "one": 1, "two": 2, "three": 3, "four": 4, "five": 5,
@@ -57,32 +61,116 @@ _CURRENCY_PATTERN = r"[$\u20ac\u00a3\u00a5\u20b9\u20bd]"
 def _clean_cell_text(value: object) -> object:
     if not isinstance(value, str):
         return value
-    value = value.strip()
+    value = (
+        value.replace("\ufeff", "")
+        .replace("\u200b", "")
+        .replace("\u200c", "")
+        .replace("\u200d", "")
+        .replace("\u00a0", " ")
+        .strip()
+    )
     return pd.NA if value.casefold() in _NULL_VALUES else value
 
 
-def load_table(path: str | Path, sheet_name: str | None = None) -> tuple[pd.DataFrame, list[str]]:
+def _unique_headers(columns: object) -> list[str]:
+    headers: list[str] = []
+    seen_headers: dict[str, int] = {}
+    used_headers: set[str] = set()
+    for index, column in enumerate(columns):
+        base = str(column).strip() or f"Column_{index + 1}"
+        occurrence = seen_headers.get(base.casefold(), 0) + 1
+        seen_headers[base.casefold()] = occurrence
+        candidate = base if occurrence == 1 else f"{base}_{occurrence}"
+        while candidate.casefold() in used_headers:
+            occurrence += 1
+            candidate = f"{base}_{occurrence}"
+        seen_headers[base.casefold()] = occurrence
+        used_headers.add(candidate.casefold())
+        headers.append(candidate)
+    return headers
+
+
+def _header_row_index(rows: list[list[object]]) -> int:
+    """Choose a real header after banner/title rows in an Excel sheet."""
+    for index, row in enumerate(rows[:100]):
+        values = [_clean_cell_text(value) for value in row]
+        non_empty = [str(value).strip() for value in values if not pd.isna(value) and str(value).strip()]
+        if len(values) < 2 or len(non_empty) / max(1, len(values)) < 0.6:
+            continue
+        unique = {value.casefold() for value in non_empty}
+        mostly_text = sum(not re.fullmatch(r"[-+]?\d+(?:\.\d+)?", value) for value in non_empty) / len(non_empty)
+        if len(unique) / len(non_empty) >= 0.6 and mostly_text >= 0.6:
+            return index
+    return 0
+
+
+def _load_excel_rows(file_path: Path, include_hidden_sheets: bool) -> tuple[pd.DataFrame, list[str], dict[str, object]]:
+    try:
+        from openpyxl import load_workbook
+    except ImportError:
+        with pd.ExcelFile(file_path) as workbook:
+            sheets = list(workbook.sheet_names)
+        parsed = pd.read_excel(file_path, header=None, dtype=str, keep_default_na=False)
+        return parsed, sheets, {"excel_header_row": 1}
+
+    workbook = load_workbook(file_path, read_only=False, data_only=True)
+    all_sheets = [sheet.title for sheet in workbook.worksheets]
+    visible_sheets = []
+    for sheet in workbook.worksheets:
+        if not include_hidden_sheets and sheet.sheet_state != "visible":
+            continue
+        if any(value is not None and str(value).strip() for row in sheet.iter_rows(values_only=True) for value in row):
+            visible_sheets.append(sheet.title)
+    selected = visible_sheets or all_sheets
+    selected_sheet = selected[0] if selected else None
+    if selected_sheet is None:
+        raise ValueError("The Excel workbook does not contain any worksheets.")
+    worksheet = workbook[selected_sheet]
+    rows = [list(row) for row in worksheet.iter_rows(values_only=True)]
+    return pd.DataFrame(rows), visible_sheets, {"excel_header_row": _header_row_index(rows) + 1}
+
+
+def load_table(
+    path: str | Path,
+    sheet_name: str | None = None,
+    include_hidden_sheets: bool = False,
+) -> tuple[pd.DataFrame, list[str]]:
     """Load one selected worksheet or a delimited text file as strings."""
     file_path = Path(path)
     suffix = file_path.suffix.casefold()
 
-    if suffix in {".xlsx", ".xlsm", ".xls"}:
+    load_metadata: dict[str, object] = {}
+    if suffix in {".xlsx", ".xlsm"}:
+        workbook_frame, sheets, load_metadata = _load_excel_rows(file_path, include_hidden_sheets)
+        selected_sheet = sheet_name if sheet_name in sheets else (sheets[0] if sheets else None)
+        if selected_sheet is None:
+            raise ValueError("The Excel workbook does not contain any visible worksheets with data.")
+        # Re-read the requested sheet while retaining cached formula values.
+        from openpyxl import load_workbook
+        workbook = load_workbook(file_path, read_only=False, data_only=True)
+        rows = [list(row) for row in workbook[selected_sheet].iter_rows(values_only=True)]
+        header_index = _header_row_index(rows)
+        parsed_file = pd.DataFrame(rows)
+        if parsed_file.empty:
+            raise ValueError("The selected file does not contain a header row.")
+        headers = parsed_file.iloc[header_index].tolist()
+        frame = parsed_file.iloc[header_index + 1:].copy()
+        frame.columns = headers
+        load_metadata["excel_header_row"] = header_index + 1
+        load_metadata["excel_sheet"] = selected_sheet
+        load_metadata["hidden_sheets_ignored"] = not include_hidden_sheets
+    elif suffix == ".xls":
         with pd.ExcelFile(file_path) as workbook:
             sheets = list(workbook.sheet_names)
             if not sheets:
                 raise ValueError("The Excel workbook does not contain any worksheets.")
             selected_sheet = sheet_name if sheet_name in sheets else sheets[0]
-            parsed_file = pd.read_excel(
-                workbook,
-                sheet_name=selected_sheet,
-                header=None,
-                dtype=str,
-                keep_default_na=False,
-            )
+            parsed_file = pd.read_excel(workbook, sheet_name=selected_sheet, header=None, dtype=str, keep_default_na=False)
             if parsed_file.empty:
                 raise ValueError("The selected file does not contain a header row.")
-            headers = parsed_file.iloc[0].tolist()
-            frame = parsed_file.iloc[1:].copy()
+            header_index = _header_row_index(parsed_file.values.tolist())
+            headers = parsed_file.iloc[header_index].tolist()
+            frame = parsed_file.iloc[header_index + 1:].copy()
             frame.columns = headers
     elif suffix in {".csv", ".tsv", ".tab", ".txt"}:
         sheets = []
@@ -107,24 +195,35 @@ def load_table(path: str | Path, sheet_name: str | None = None) -> tuple[pd.Data
 
         last_error: UnicodeDecodeError | None = None
         frame = None
+        ragged_rows: list[dict[str, object]] = []
         for encoding in ("utf-8-sig", "utf-8", "cp1252", "latin-1"):
             try:
-                try:
-                    parsed_file = pd.read_csv(
-                        file_path,
-                        sep=delimiter,
-                        header=None,
-                        dtype=str,
-                        keep_default_na=False,
-                        encoding=encoding,
-                        low_memory=False,
-                    )
-                except pd.errors.EmptyDataError as error:
-                    raise ValueError("The selected file does not contain a header row.") from error
-                if parsed_file.empty:
+                with file_path.open("r", encoding=encoding, newline="") as source:
+                    rows = list(csv.reader(source, delimiter=delimiter))
+                if not rows:
                     raise ValueError("The selected file does not contain a header row.")
-                headers = parsed_file.iloc[0].tolist()
-                frame = parsed_file.iloc[1:].copy()
+                expected_fields = len(rows[0])
+                normalized_rows: list[list[str]] = [rows[0]]
+                overflow_column = "__overflow__"
+                for source_row, row in enumerate(rows[1:], start=2):
+                    if len(row) != expected_fields:
+                        extras = row[expected_fields:]
+                        normalized = row[:expected_fields] if extras else row[:expected_fields] + [""] * (expected_fields - len(row))
+                        ragged_rows.append({"row": source_row, "expected": expected_fields, "actual": len(row), "overflow": extras})
+                        normalized_rows.append(normalized)
+                    else:
+                        normalized_rows.append(row)
+                if any(item["overflow"] for item in ragged_rows):
+                    normalized_rows[0] = normalized_rows[0] + [overflow_column]
+                    for index, item in enumerate(ragged_rows, start=1):
+                        normalized_rows[index] = normalized_rows[index] + [" | ".join(item["overflow"])]
+                    for index, row in enumerate(normalized_rows[1:], start=1):
+                        if len(row) == expected_fields:
+                            normalized_rows[index] = row + [""]
+                parsed_file = pd.DataFrame(normalized_rows[1:], columns=normalized_rows[0])
+                headers = parsed_file.columns.tolist()
+                frame = parsed_file.copy()
+                load_metadata["ragged_rows_fixed"] = ragged_rows
                 frame.columns = headers
                 break
             except UnicodeDecodeError as error:
@@ -139,21 +238,8 @@ def load_table(path: str | Path, sheet_name: str | None = None) -> tuple[pd.Data
     if len(frame.columns) == 0:
         raise ValueError("The selected sheet does not contain any columns.")
 
-    headers: list[str] = []
-    seen_headers: dict[str, int] = {}
-    used_headers: set[str] = set()
-    for index, column in enumerate(frame.columns):
-        base = str(column).strip() or f"Column_{index + 1}"
-        occurrence = seen_headers.get(base.casefold(), 0) + 1
-        seen_headers[base.casefold()] = occurrence
-        candidate = base if occurrence == 1 else f"{base}_{occurrence}"
-        while candidate.casefold() in used_headers:
-            occurrence += 1
-            candidate = f"{base}_{occurrence}"
-        seen_headers[base.casefold()] = occurrence
-        used_headers.add(candidate.casefold())
-        headers.append(candidate)
-    frame.columns = headers
+    frame.columns = _unique_headers(frame.columns)
+    frame.attrs["load_report"] = load_metadata
     return frame, sheets
 
 
@@ -175,6 +261,19 @@ def _repeated_header_mask(frame: pd.DataFrame) -> pd.Series:
         for index, column in enumerate(frame.columns)
     ]
     return pd.concat(matches, axis=1).sum(axis=1).ge((len(frame.columns) + 1) // 2)
+
+
+def _duplicate_token(value: object) -> str:
+    if value is None or pd.isna(value):
+        return ""
+    return re.sub(r"\s+", " ", str(value).replace("\u00a0", " ")).strip().casefold()
+
+
+def _structural_junk_mask(frame: pd.DataFrame) -> pd.Series:
+    if frame.empty or not len(frame.columns):
+        return pd.Series(False, index=frame.index, dtype=bool)
+    first = frame.iloc[:, 0].map(_duplicate_token)
+    return first.str.startswith("#") | first.str.fullmatch(r"(?:total|subtotal|grand total)", na=False)
 
 
 def _parse_number_legacy(value: object) -> float | None:
@@ -290,12 +389,26 @@ def _numeric_values(series: pd.Series) -> pd.Series:
     return series.map(_parse_number).astype("float64")
 
 
-def _date_values(series: pd.Series) -> pd.Series:
+def _date_values(series: pd.Series, day_first: bool | None = None) -> pd.Series:
     text = series.astype("string").str.strip()
     present = text.notna() & ~text.str.casefold().isin(_NULL_VALUES)
-    day_first, _ = date_order_info(text[present])
-    parsed = pd.to_datetime(text, format="mixed", errors="coerce", dayfirst=day_first)
-    return parsed
+    inferred_day_first, _ = date_order_info(text[present])
+    with warnings.catch_warnings():
+        warnings.simplefilter("ignore", FutureWarning)
+        parsed = pd.to_datetime(text, format="mixed", errors="coerce", dayfirst=inferred_day_first if day_first is None else day_first, utc=True)
+    numeric = pd.to_numeric(text, errors="coerce")
+    excel_mask = numeric.between(1, 100000) & numeric.notna()
+    unix_ms_mask = numeric.between(100000000000, 10000000000000) & numeric.notna()
+    unix_s_mask = numeric.between(1000000000, 100000000000) & numeric.notna()
+    if excel_mask.any():
+        parsed.loc[excel_mask] = pd.to_datetime(
+            numeric.loc[excel_mask], unit="D", origin="1899-12-30", errors="coerce", utc=True
+        )
+    if unix_ms_mask.any():
+        parsed.loc[unix_ms_mask] = pd.to_datetime(numeric.loc[unix_ms_mask], unit="ms", errors="coerce", utc=True)
+    if unix_s_mask.any():
+        parsed.loc[unix_s_mask] = pd.to_datetime(numeric.loc[unix_s_mask], unit="s", errors="coerce", utc=True)
+    return parsed.dt.tz_convert("UTC").dt.tz_localize(None)
 
 
 def date_order_info(series: pd.Series) -> tuple[bool, bool]:
@@ -324,7 +437,7 @@ def date_order_info(series: pd.Series) -> tuple[bool, bool]:
     return False, ambiguous_seen
 
 
-def detect_column_types(frame: pd.DataFrame) -> dict[str, str]:
+def _detect_column_types_unsafe(frame: pd.DataFrame) -> dict[str, str]:
     """Infer a type for every column from its label and observed values."""
     result: dict[str, str] = {}
     for column in frame.columns:
@@ -347,13 +460,21 @@ def detect_column_types(frame: pd.DataFrame) -> dict[str, str]:
             result[column] = "IDENTIFIER"
             continue
 
-        parsed_dates = _date_values(values)
+        try:
+            parsed_dates = _date_values(values)
+        except Exception:
+            parsed_dates = pd.Series(pd.NaT, index=values.index)
         date_ratio = parsed_dates.notna().mean()
-        if date_ratio >= 0.5:
+        date_hint = bool(words & {"date", "time", "dob", "joined", "created", "updated", "signed", "at"})
+        non_numeric_dates = parsed_dates.notna() & pd.to_numeric(values, errors="coerce").isna()
+        if date_ratio >= 0.5 and (date_hint or non_numeric_dates.mean() >= 0.5):
             result[column] = "DATE"
             continue
 
-        numeric = _numeric_values(values)
+        try:
+            numeric = _numeric_values(values)
+        except Exception:
+            numeric = pd.Series(float("nan"), index=values.index, dtype="float64")
         numeric_ratio = numeric.notna().mean()
         has_percent = values.str.contains("%", regex=False).mean() >= 0.2
         if bool(words & _PERCENT_WORDS) or has_percent:
@@ -398,6 +519,20 @@ def detect_column_types(frame: pd.DataFrame) -> dict[str, str]:
     return result
 
 
+def detect_column_types(frame: pd.DataFrame) -> dict[str, str]:
+    """Infer each column independently so one malformed column cannot abort detection."""
+    result: dict[str, str] = {}
+    errors: list[dict[str, object]] = []
+    for column in frame.columns:
+        try:
+            result[column] = _detect_column_types_unsafe(frame[[column]])[column]
+        except Exception as error:
+            result[column] = "TEXT"
+            errors.append({"column": str(column), "error": str(error)})
+    frame.attrs["detection_errors"] = errors
+    return result
+
+
 def clean_table(
     raw: pd.DataFrame,
     column_types: dict[str, str] | None = None,
@@ -414,9 +549,15 @@ def clean_table(
             log(message)
 
     frame = raw.copy()
+    original_nonempty_columns = {
+        column: bool(frame[column].map(lambda value: value is not None and not (isinstance(value, float) and pd.isna(value)) and str(value).strip()).any())
+        for column in frame.columns
+    }
     for column in frame.columns:
         frame[column] = frame[column].map(_clean_cell_text)
-    source_rows = pd.Series(range(2, len(frame) + 2), index=frame.index)
+    load_report = dict(frame.attrs.get("load_report", {}))
+    source_start = int(load_report.get("excel_header_row", 1)) + 1 if load_report.get("excel_header_row") else 2
+    source_rows = pd.Series(range(source_start, source_start + len(frame)), index=frame.index)
 
     repeated_header_mask = _repeated_header_mask(frame)
     repeated_header_rows_removed = int(repeated_header_mask.sum())
@@ -427,9 +568,14 @@ def clean_table(
     frame = frame.loc[~repeated_header_mask].copy()
     source_rows = source_rows.loc[frame.index]
 
+    structural_mask = _structural_junk_mask(frame)
+    structural_rows_removed = [int(source_rows.loc[index]) for index in structural_mask[structural_mask].index]
+    frame = frame.loc[~structural_mask].copy()
+    source_rows = source_rows.loc[frame.index]
+
     empty_columns_removed = [
         column for column in frame.columns
-        if not frame[column].notna().any()
+        if not frame[column].notna().any() and not original_nonempty_columns.get(column, False)
     ]
     if empty_columns_removed:
         frame.drop(columns=empty_columns_removed, inplace=True)
@@ -439,7 +585,18 @@ def clean_table(
     frame = frame.loc[~blank_mask].copy()
     source_rows = source_rows.loc[frame.index]
     before_duplicates = len(frame)
-    unique_mask = ~frame.duplicated(keep="first")
+    normalized_frame = frame.apply(lambda column: column.map(_duplicate_token))
+    unique_mask = ~normalized_frame.duplicated(keep="first")
+    id_columns = [column for column in frame.columns if "id" in str(column).casefold() or str(column).casefold() in {"code", "order no", "order number"}]
+    conflicting_duplicate_rows: list[int] = []
+    if id_columns:
+        id_column = id_columns[0]
+        for _, group in normalized_frame.groupby(id_column, dropna=False, sort=False):
+            if not group[id_column].iloc[0] or len(group) < 2:
+                continue
+            distinct_payloads = group.drop(columns=[id_column]).drop_duplicates()
+            if len(distinct_payloads) > 1:
+                conflicting_duplicate_rows.extend(int(source_rows.loc[index]) for index in group.index)
     frame = frame.loc[unique_mask].copy()
     source_rows = source_rows.loc[frame.index]
     duplicate_rows = before_duplicates - len(frame)
@@ -451,16 +608,26 @@ def clean_table(
 
     detected_types = column_types or detect_column_types(frame)
     types = {column: detected_types.get(column, "TEXT") for column in frame.columns}
+    detection_errors = list(frame.attrs.get("detection_errors", []))
     issues: dict[str, int] = {}
     conversion_failures: list[dict[str, object]] = []
     category_merges: dict[str, list[dict[str, object]]] = {}
     ambiguous_dates: dict[str, bool] = {}
+    column_errors: list[dict[str, object]] = []
+    date_timezone_used = False
     date_orders = date_orders or {}
     for column in frame.columns:
         kind = types.get(column, "TEXT")
         source = frame[column]
         if kind in {"MONEY", "NUMBER", "INTEGER", "PERCENT"}:
-            parsed = _numeric_values(source)
+            try:
+                parsed = _numeric_values(source)
+            except Exception as error:
+                types[column] = "TEXT"
+                frame[column] = source.astype("string").str.strip()
+                column_errors.append({"column": str(column), "error": str(error)})
+                emit(f"Fell back to TEXT for {column}: {error}")
+                continue
             source_present = source.notna() & ~source.astype("string").str.strip().str.casefold().isin(_MISSING_CONVERSION_MARKERS)
             invalid_mask = source_present & parsed.isna()
             if kind == "PERCENT":
@@ -491,10 +658,20 @@ def clean_table(
                     })
         elif kind == "DATE":
             requested_order = date_orders.get(column)
-            inferred_day_first, ambiguous = date_order_info(source)
-            day_first = requested_order == "day_first" if requested_order in {"day_first", "month_first"} else inferred_day_first
-            text = source.astype("string").str.strip()
-            parsed = pd.to_datetime(text, format="mixed", errors="coerce", dayfirst=day_first)
+            try:
+                inferred_day_first, ambiguous = date_order_info(source)
+                day_first = requested_order == "day_first" if requested_order in {"day_first", "month_first"} else inferred_day_first
+                text = source.astype("string").str.strip()
+                date_timezone_used = date_timezone_used or bool(text.str.contains(r"(?:Z|[+-]\d{2}:?\d{2})$", regex=True, na=False).any())
+                numeric_dates = pd.to_numeric(text, errors="coerce")
+                date_timezone_used = date_timezone_used or bool(numeric_dates.between(1, 100000).any() or numeric_dates.between(1000000000, 10000000000000).any())
+                parsed = _date_values(text, day_first=day_first)
+            except Exception as error:
+                types[column] = "TEXT"
+                frame[column] = source.astype("string").str.strip()
+                column_errors.append({"column": str(column), "error": str(error)})
+                emit(f"Fell back to TEXT for {column}: {error}")
+                continue
             invalid_mask = source.notna() & ~text.str.casefold().isin(_MISSING_CONVERSION_MARKERS) & parsed.isna()
             invalid = int(invalid_mask.sum())
             frame[column] = parsed
@@ -564,6 +741,63 @@ def clean_table(
         emit(f"Prepared {column} as {kind}")
 
     quality_issues: list[dict[str, object]] = []
+    for error in detection_errors:
+        quality_issues.append({
+            "kind": "column_error",
+            "column": error["column"],
+            "count": 1,
+            "rows": [],
+            "message": f"Column {error['column']} fell back to TEXT during detection: {error['error']}",
+        })
+    for error in column_errors:
+        quality_issues.append({
+            "kind": "column_error",
+            "column": error["column"],
+            "count": 1,
+            "rows": [],
+            "message": f"Column {error['column']} fell back to TEXT during cleaning: {error['error']}",
+        })
+    ragged_rows = load_report.get("ragged_rows_fixed", [])
+    if ragged_rows:
+        quality_issues.append({
+            "kind": "ragged_rows_fixed",
+            "column": "",
+            "count": len(ragged_rows),
+            "rows": [int(item["row"]) for item in ragged_rows[:10]],
+            "message": f"Fixed {len(ragged_rows):,} ragged CSV row(s) by padding blanks and preserving overflow values",
+        })
+    if structural_rows_removed:
+        quality_issues.append({
+            "kind": "structural_rows_removed",
+            "column": "",
+            "count": len(structural_rows_removed),
+            "rows": structural_rows_removed[:10],
+            "message": f"Removed {len(structural_rows_removed):,} structural total/comment row(s)",
+        })
+    if conflicting_duplicate_rows:
+        quality_issues.append({
+            "kind": "conflicting_duplicate",
+            "column": id_columns[0] if id_columns else "",
+            "count": len(conflicting_duplicate_rows),
+            "rows": conflicting_duplicate_rows[:10],
+            "message": f"Found {len(conflicting_duplicate_rows):,} rows sharing an ID with different data; all rows were kept",
+        })
+    if load_report.get("excel_header_row"):
+        quality_issues.append({
+            "kind": "excel_header_detected",
+            "column": "",
+            "count": 1,
+            "rows": [int(load_report["excel_header_row"])],
+            "message": f"Detected the Excel header on source row {load_report['excel_header_row']}",
+        })
+    if date_timezone_used:
+        quality_issues.append({
+            "kind": "date_timezone_normalized",
+            "column": "",
+            "count": 1,
+            "rows": [],
+            "message": "Parsed date/time values are normalized to UTC and exported without a timezone offset",
+        })
     for rule in validation_rules or []:
         column = str(rule.get("column", ""))
         operator = str(rule.get("operator", ""))

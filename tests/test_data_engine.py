@@ -17,6 +17,41 @@ from data_engine import (
 
 
 class DataEngineTests(unittest.TestCase):
+    FIXTURES = Path(__file__).parent / "fixtures"
+
+    def test_extreme_csv_fixtures_load_and_clean_with_audit_trail(self):
+        for name in ("messy_extreme.csv", "messy_extreme_no_ragged_rows.csv"):
+            with self.subTest(name=name):
+                raw, _ = load_table(self.FIXTURES / name)
+                cleaned, report = clean_table(raw, detect_column_types(raw))
+                self.assertGreater(len(cleaned), 0)
+                self.assertIn("date_timezone_normalized", {issue["kind"] for issue in report["quality_issues"]})
+                self.assertIn("structural_rows_removed", {issue["kind"] for issue in report["quality_issues"]})
+                self.assertIn("conflicting_duplicate", {issue["kind"] for issue in report["quality_issues"]})
+        raw, _ = load_table(self.FIXTURES / "messy_extreme.csv")
+        _, report = clean_table(raw, detect_column_types(raw))
+        ragged = next(issue for issue in report["quality_issues"] if issue["kind"] == "ragged_rows_fixed")
+        self.assertGreater(ragged["count"], 0)
+        self.assertTrue(ragged["rows"])
+
+    def test_extreme_workbook_detects_header_ignores_hidden_and_empty_sheets(self):
+        raw, sheets = load_table(self.FIXTURES / "messy_extreme_workbook.xlsx")
+        self.assertEqual(sheets, ["Orders (raw)", "Summary", "Lookup"])
+        self.assertEqual(raw.columns.tolist()[0], "Order No")
+        cleaned, report = clean_table(raw, detect_column_types(raw))
+        self.assertGreater(len(cleaned), 0)
+        kinds = {issue["kind"] for issue in report["quality_issues"]}
+        self.assertIn("excel_header_detected", kinds)
+        self.assertIn("structural_rows_removed", kinds)
+
+    def test_mixed_timezones_unix_and_excel_dates_are_normalized(self):
+        raw = pd.DataFrame({"Event Date": ["2024-01-01T00:00:00Z", "2024-01-01T05:30:00+05:30", "1704067200", "45292", None]})
+        cleaned, report = clean_table(raw, {"Event Date": "DATE"})
+        self.assertEqual(cleaned["Event Date"].iloc[0], cleaned["Event Date"].iloc[1])
+        self.assertEqual(cleaned["Event Date"].iloc[2].year, 2024)
+        self.assertEqual(cleaned["Event Date"].iloc[3].year, 2024)
+        self.assertIn("date_timezone_normalized", {issue["kind"] for issue in report["quality_issues"]})
+
     def test_detects_new_columns_without_a_fixed_business_schema(self):
         frame = pd.DataFrame(
             {

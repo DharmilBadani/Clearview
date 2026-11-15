@@ -102,7 +102,7 @@ class WebAppTests(unittest.TestCase):
             self.assertEqual(cell.value, value)
             self.assertEqual(cell.data_type, "s")
             self.assertTrue(cell.quotePrefix)
-        for column, value in {"Contact Phone": "+91 98765 43210", "Dash": "-"}.items():
+        for column, value in {"Contact Phone": "+91 98765 43210", "Dash": None}.items():
             cell = cleaned_sheet.cell(2, headers.index(column) + 1)
             self.assertEqual(cell.value, value)
             self.assertFalse(cell.quotePrefix)
@@ -115,7 +115,7 @@ class WebAppTests(unittest.TestCase):
         self.assertIn(b"=1+1", csv_content)
         self.assertNotIn(b"'=1+1", csv_content)
         self.assertIn(b"+91 98765 43210", csv_content)
-        self.assertTrue(csv_content.splitlines()[1].endswith(b",-"))
+        self.assertTrue(csv_content.splitlines()[1].endswith(b","))
 
     def test_inventory_upload_cleans_rows_dates_and_quality_report(self):
         self._upload_fixture("messy_test_inventory_semicolon.csv")
