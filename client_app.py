@@ -274,7 +274,15 @@ def _host_is_allowed(host: str, port: int | None, allowed_port: int) -> bool:
 
 @app.before_request
 def enforce_local_request_origin():
-    host_parts = urlsplit("//" + request.host)
+    # Render terminates TLS at its proxy and forwards the public host to the
+    # application. Prefer that value for host and same-origin validation.
+    forwarded_hosts = {
+        item.strip().casefold()
+        for item in request.headers.get("X-Forwarded-Host", "").split(",")
+        if item.strip()
+    }
+    effective_host = next(iter(forwarded_hosts), request.host)
+    host_parts = urlsplit("//" + effective_host)
     host = host_parts.hostname or ""
     try:
         port = host_parts.port
@@ -293,7 +301,7 @@ def enforce_local_request_origin():
         if (
             origin_parts.scheme not in {"http", "https"}
             or (
-                origin_parts.netloc.casefold() != request.host.casefold()
+                origin_parts.netloc.casefold() not in ({effective_host.casefold()} | forwarded_hosts)
                 and origin.casefold() not in ALLOWED_ORIGINS
             )
         ):
