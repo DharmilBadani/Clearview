@@ -188,8 +188,8 @@ class WebAppTests(unittest.TestCase):
         report_book = load_workbook(Path(self.temp_dir.name) / result["report"], read_only=True)
         failures = self._conversion_detail_rows(report_book["Data Quality"])
         self.assertIn(("Submitted", "yesterday", 5, "Could not parse date"), failures)
-        self.assertIn(("Age", "forty", 8, "Could not convert value"), failures)
-        self.assertIn(("Income", "unknown", 10, "Could not convert value"), failures)
+        self.assertNotIn(("Age", "forty", 8, "Could not convert value"), failures)
+        self.assertNotIn(("Income", "unknown", 10, "Could not convert value"), failures)
         report_book.close()
 
     def test_analyze_exports_iso_dates_and_honors_boolean_normalization_toggle(self):

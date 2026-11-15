@@ -22,7 +22,15 @@ TYPE_CHOICES = (
 )
 
 _NULL_VALUES = {"", "null", "none", "nan", "n/a", "n.a."}
-_MISSING_CONVERSION_MARKERS = {"", "?", "tbd", "00/00/0000", "na", "n/a", "n.a.", "none", "null", "nan", "-"}
+_MISSING_CONVERSION_MARKERS = {"", "?", "tbd", "unknown", "00/00/0000", "na", "n/a", "n.a.", "none", "null", "nan", "-"}
+_NUMBER_WORDS = {
+    "zero": 0, "one": 1, "two": 2, "three": 3, "four": 4, "five": 5,
+    "six": 6, "seven": 7, "eight": 8, "nine": 9, "ten": 10,
+    "eleven": 11, "twelve": 12, "thirteen": 13, "fourteen": 14,
+    "fifteen": 15, "sixteen": 16, "seventeen": 17, "eighteen": 18,
+    "nineteen": 19, "twenty": 20, "thirty": 30, "forty": 40,
+    "fifty": 50, "sixty": 60, "seventy": 70, "eighty": 80, "ninety": 90,
+}
 _ID_WORDS = {"id", "uuid", "sku", "code", "phone", "telephone", "postcode", "zip"}
 _MONEY_WORDS = {
     "amount", "cost", "price", "revenue", "sales", "total", "subtotal",
@@ -254,6 +262,9 @@ def _parse_number(value: object) -> float | None:
         except ValueError:
             return None
         return (-abs(number) if negative else number) * multiplier
+    word_number = _NUMBER_WORDS.get(text.casefold())
+    if word_number is not None:
+        return (-abs(word_number) if negative else word_number) * multiplier
     if re.search(r"[A-Za-z]", text):
         return None
     text = re.sub(r"[^\d,.\-+]", "", text)

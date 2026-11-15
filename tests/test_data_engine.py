@@ -144,9 +144,9 @@ class DataEngineTests(unittest.TestCase):
         self.assertEqual(len(clean), 150)
         failures = {(item["column"], item["value"], item["row"]) for item in report["conversion_failures"]}
         self.assertIn(("Submitted", "yesterday", 5), failures)
-        self.assertIn(("Age", "forty", 8), failures)
-        self.assertIn(("Income", "unknown", 10), failures)
-        self.assertEqual(report["conversion_issues"]["Income"], 26)
+        self.assertNotIn(("Age", "forty", 8), failures)
+        self.assertNotIn(("Income", "unknown", 10), failures)
+        self.assertNotIn("Income", report["conversion_issues"])
 
     def test_money_parsing_supports_localized_numbers_and_lakh_suffix(self):
         self.assertEqual(_parse_number("\u20b91.234,56"), 1234.56)
@@ -194,15 +194,14 @@ class DataEngineTests(unittest.TestCase):
 
         self.assertEqual(len(clean), len(raw))
         self.assertTrue(clean["Submitted"].iloc[1:].isna().all())
-        self.assertTrue(clean["Income"].iloc[1:3].isna().all())
+        self.assertTrue(pd.isna(clean["Income"].iloc[1]))
+        self.assertEqual(clean["Income"].iloc[2], 40)
         failures = {(item["column"], item["value"], item["row"]) for item in report["conversion_failures"]}
         self.assertEqual(
             failures,
             {
                 ("Submitted", "yesterday", 3),
                 ("Submitted", "31/02/2024", 5),
-                ("Income", "unknown", 3),
-                ("Income", "forty", 4),
             },
         )
 
